@@ -1,0 +1,230 @@
+query pricelist($where: WhereInputType!) {
+  pricelist(where: $where) {
+    name
+    description
+    availability {
+      m {
+        start
+        end
+      }
+      t {
+        start
+        end
+      }
+      w {
+        start
+        end
+      }
+      th {
+        start
+        end
+      }
+      f {
+        start
+        end
+      }
+      sa {
+        start
+        end
+      }
+      s {
+        start
+        end
+      }
+    }
+    commerce
+    collection {
+      enabled
+      type
+    }
+    delivery {
+      enabled
+      type
+    }
+    catalog {
+      categories {
+        id
+        name
+        description
+        posId
+        items {
+          id
+          name
+          description
+          photos
+          modifiers {
+            id
+            name
+            posId
+            required
+            maxSelection
+            options {
+              id
+              name
+              posId
+              price
+            }
+          }
+          regularPrice
+          roomServicePrice
+          posSettings {
+            roomService {
+              posId
+              name
+              price
+            }
+            tableService {
+              posId
+              name
+              price
+            }
+            priceLevels {
+              posId
+              name
+              price
+            }
+          }
+          labels {
+            id
+            name
+          }
+          note
+          posId
+          snoozed
+          promotions {
+            discounts {
+              id
+              name
+              value
+              available
+              level
+              minOrderAmount
+              type
+              posSettings {
+                open
+              }
+              posId
+              delivery {
+                enabled
+                type
+              }
+              collection {
+                enabled
+                type
+              }
+              count
+            }
+          }
+        }
+      }
+      labels {
+        id
+        name
+      }
+    }
+    posSettings {
+      enabled
+      posId
+      revenueCenterId
+      tableService {
+        posId
+        name
+      }
+      roomService {
+        posId
+        name
+      }
+      employeeId
+      provider
+    }
+    promotions {
+      discounts {
+        id
+        name
+        value
+        available
+        level
+        minOrderAmount
+        type
+        posSettings {
+          open
+        }
+        posId
+        delivery {
+          enabled
+          type
+        }
+        collection {
+          enabled
+          type
+        }
+        count
+      }
+    }
+    surcharges {
+      id
+      name
+      value
+      type
+      delivery {
+        enabled
+        type
+      }
+      collection {
+        enabled
+        type
+      }
+    }
+    enabledPayments {
+      card
+      roomBill
+      cash
+    }
+    autoApprove
+    feedback
+    posId
+    space {
+      name
+      location
+      availability {
+        m {
+          start
+          end
+        }
+        t {
+          start
+          end
+        }
+        w {
+          start
+          end
+        }
+        th {
+          start
+          end
+        }
+        f {
+          start
+          end
+        }
+        sa {
+          start
+          end
+        }
+        s {
+          start
+          end
+        }
+      }
+      enabled
+      id
+      dateCreated
+      deleted
+      dateUpdated
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

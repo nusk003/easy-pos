@@ -1,0 +1,4 @@
+mutation sendUserToken($email: String!, $verificationTokenOnly: Boolean) {
+  sendUserToken(email: $email, verificationTokenOnly: $verificationTokenOnly)
+}
+    

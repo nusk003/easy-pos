@@ -1,0 +1,21 @@
+query searchProducts($query: String, $limit: Float, $offset: Float, $outOfStockItems: Boolean) {
+  searchProducts(
+    query: $query
+    limit: $limit
+    offset: $offset
+    outOfStockItems: $outOfStockItems
+  ) {
+    data {
+      name
+      code
+      stock
+      sellPrice
+      costPrice
+      id
+      dateCreated
+      deleted
+      dateUpdated
+    }
+    count
+  }
+}

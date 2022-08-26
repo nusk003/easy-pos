@@ -1,0 +1,4 @@
+mutation inviteHotelUser($email: String!, $hotels: [InviteUserHotelInput!], $groupAdmin: Boolean) {
+  inviteHotelUser(email: $email, hotels: $hotels, groupAdmin: $groupAdmin)
+}
+    

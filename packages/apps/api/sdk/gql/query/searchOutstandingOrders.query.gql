@@ -1,0 +1,117 @@
+query searchOutstandingOrders($query: String, $limit: Float, $offset: Float, $guestId: String, $paymentType: PaymentType) {
+  searchOutstandingOrders(
+    query: $query
+    limit: $limit
+    offset: $offset
+    guestId: $guestId
+    paymentType: $paymentType
+  ) {
+    data {
+      dateApproved
+      dateReady
+      dateCompleted
+      dateScheduled
+      items {
+        id
+        name
+        posId
+        modifiers {
+          id
+          name
+          posId
+          options {
+            id
+            name
+            posId
+            price
+          }
+        }
+        discount {
+          id
+          posId
+          value
+          type
+          name
+        }
+        quantity
+        posSettings {
+          posId
+          name
+        }
+        totalPrice
+        omnivoreSettings {
+          tableService {
+            posId
+            name
+            price
+          }
+          roomService {
+            posId
+            name
+            price
+          }
+        }
+      }
+      totalPrice
+      roomNumber
+      notes
+      cardDetails {
+        id
+        country
+        brand
+        last4
+      }
+      paymentProvider
+      paymentType
+      orderReference
+      posId
+      subtotal
+      discount {
+        id
+        posId
+        value
+        type
+        name
+      }
+      surcharges {
+        id
+        posId
+        value
+        type
+        name
+      }
+      reasonRejected
+      rejected
+      delivery
+      collection
+      paid
+      feedback {
+        rating
+      }
+      guest {
+        mobile
+        mobileCountryCode
+        lastName
+        firstName
+        id
+      }
+      space {
+        name
+        id
+      }
+      pricelist {
+        name
+        id
+      }
+      thread {
+        id
+      }
+      status
+      id
+      dateCreated
+      deleted
+      dateUpdated
+    }
+    count
+  }
+}

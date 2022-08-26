@@ -1,0 +1,15 @@
+mutation updateHMPayExternalAccount($accountNumber: String!, $sortCode: String!, $payoutSchedule: HMPayAccountPayoutScheduleInput!) {
+  updateHMPayExternalAccount(
+    accountNumber: $accountNumber
+    sortCode: $sortCode
+    payoutSchedule: $payoutSchedule
+  ) {
+    accountNumberLast4
+    sortCode
+    payoutSchedule {
+      interval
+      date
+    }
+    dateCreated
+  }
+}

@@ -1,0 +1,23 @@
+query attractionPlacebyPlaceID($placeId: String!) {
+  attractionPlacebyPlaceID(placeId: $placeId) {
+    id
+    placeId
+    name
+    address
+    rating
+    note
+    coordinates {
+      lat
+      lng
+    }
+    photos
+    description
+    website
+    phone
+    requestBooking
+    labels {
+      id
+      name
+    }
+  }
+}

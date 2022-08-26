@@ -1,0 +1,6 @@
+query apaleoProperties {
+  apaleoProperties {
+    id
+    name
+  }
+}

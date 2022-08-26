@@ -1,0 +1,126 @@
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0;
+      font-weight: 400;
+      background-color: #fff;
+      color:
+        #000000;
+    }
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 500;
+      line-height:
+        21px;
+    }
+
+    strong {
+      font-weight: 500;
+    }
+
+    a {
+      text-decoration: underline;
+      color:
+        inherit !important;
+      font-weight: 500;
+    }
+
+    .wrapper {
+      font-family:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    }
+
+    .button {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+        Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+      display: block;
+      margin: 0 20px;
+      padding: 12px 0;
+      background: #000000;
+      border-radius: 12px;
+      color: #fff !important;
+      cursor: pointer;
+      border-style: unset;
+      font-weight:
+        bold;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .bg-blue {
+      background-color:
+        #1a73e8;
+    }
+
+    @media screen and (min-width: 768px) {
+      body {
+        background-color:
+          #f4f4f4;
+      }
+
+      .wrapper {
+        width: 768px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div style='background-color: #fff' class='wrapper'>
+    <div style='
+          padding: 0 20px;
+          padding-top: 24px;
+          font-weight: 600;
+          font-size: 25px;
+        '>
+      Welcome to Hotel Manager
+    </div>
+
+    <div style='padding: 40px 20px;'>
+      <div style='font-size: 14px; font-weight: 500'>You have been invited to
+        join
+        {{groupName}}
+        by
+        {{inviteEmail}}
+        on Hotel Manager. To get started, accept the invite below:</div>
+    </div>
+
+    <div style='padding-bottom: 20px'>
+      <a class='button bg-blue' href='{{inviteLink}}'>Accept Invite</a>
+    </div>
+
+    <div style='padding: 20px'>
+      <p style='
+            font-size: 14px; 
+            font-weight: 400;
+            color: gray;
+          '>
+        You can find answers to most questions at
+        <a href='http://support.hotelmanager.co'>
+          support.hotelmanager.co
+        </a>
+        – we’re here to help you at any step along the way.
+        <br />
+        <br />
+        Yours,
+        <br />
+        The Hotel Manager Team
+        <br />
+        <br />
+        If there are any issues at all, please reach out to
+        <strong>hello@hotelmanager.co.</strong>
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

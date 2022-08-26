@@ -1,0 +1,11 @@
+mutation createHMPayAccount($accountNumber: String!, $sortCode: String!) {
+  createHMPayAccount(accountNumber: $accountNumber, sortCode: $sortCode) {
+    accountNumberLast4
+    sortCode
+    payoutSchedule {
+      interval
+      date
+    }
+    dateCreated
+  }
+}

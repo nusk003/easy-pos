@@ -1,0 +1,7 @@
+query searchCustomAttractionPlace($query: String!) {
+  searchCustomAttractionPlace(query: $query) {
+    placeId
+    title
+    description
+  }
+}

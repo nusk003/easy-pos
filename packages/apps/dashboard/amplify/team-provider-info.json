@@ -1,0 +1,44 @@
+{
+    "staging": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cloudconsole-staging-171030-authRole",
+            "UnauthRoleArn": "arn:aws:iam::953617489908:role/amplify-cloudconsole-staging-171030-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::953617489908:role/amplify-cloudconsole-staging-171030-authRole",
+            "Region": "eu-west-2",
+            "DeploymentBucketName": "amplify-cloudconsole-staging-171030-deployment",
+            "UnauthRoleName": "amplify-cloudconsole-staging-171030-unauthRole",
+            "StackName": "amplify-cloudconsole-staging-171030",
+            "StackId": "arn:aws:cloudformation:eu-west-2:953617489908:stack/amplify-cloudconsole-staging-171030/d682c480-e3c8-11ea-81c7-0a7f7081acf8",
+            "AmplifyAppId": "dp7ilqqnxsnqv"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dp7ilqqnxsnqv",
+                    "type": "manual"
+                }
+            }
+        }
+    },
+    "production": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cloudconsole-production-160950-authRole",
+            "UnauthRoleArn": "arn:aws:iam::953617489908:role/amplify-cloudconsole-production-160950-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::953617489908:role/amplify-cloudconsole-production-160950-authRole",
+            "Region": "eu-west-2",
+            "DeploymentBucketName": "amplify-cloudconsole-production-160950-deployment",
+            "UnauthRoleName": "amplify-cloudconsole-production-160950-unauthRole",
+            "StackName": "amplify-cloudconsole-production-160950",
+            "StackId": "arn:aws:cloudformation:eu-west-2:953617489908:stack/amplify-cloudconsole-production-160950/94d5eec0-e564-11ea-a99c-06af0f49b59c",
+            "AmplifyAppId": "dp7ilqqnxsnqv"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dp7ilqqnxsnqv",
+                    "type": "manual"
+                }
+            }
+        }
+    }
+}

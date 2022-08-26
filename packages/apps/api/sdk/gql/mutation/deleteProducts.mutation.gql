@@ -1,0 +1,4 @@
+mutation deleteProducts($where: [WhereInputType!]!) {
+  deleteProducts(where: $where)
+}
+    

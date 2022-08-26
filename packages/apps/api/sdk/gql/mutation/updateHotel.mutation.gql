@@ -1,0 +1,324 @@
+mutation updateHotel($data: UpdateHotelInput!) {
+  updateHotel(data: $data) {
+    name
+    telephone
+    address {
+      line1
+      line2
+      town
+      country
+      postalCode
+      coordinates {
+        lat
+        lng
+      }
+      placeId
+    }
+    website
+    currencyCode
+    countryCode
+    app {
+      versionCode
+      domain
+      disabled
+      disabledReason
+      metadata {
+        title
+        subtitle
+        shortDescription
+        fullDescription
+        keywords
+        icon
+        screenshots {
+          ios {
+            _1
+            _2
+            _3
+          }
+          ios55 {
+            _1
+            _2
+            _3
+          }
+          android {
+            featureGraphic
+          }
+        }
+        ios {
+          appStoreId
+        }
+      }
+      assets {
+        featuredImage
+        featuredLogo
+      }
+      forceUpdate
+      experimental {
+        hideProfile
+      }
+    }
+    payouts {
+      stripe {
+        accountId
+        linked
+        publicKey
+        dateCreated
+      }
+      hm {
+        accountNumberLast4
+        sortCode
+        payoutSchedule {
+          interval
+          date
+        }
+        dateCreated
+      }
+      enabled
+    }
+    messagesSettings {
+      enabled
+      availability {
+        m {
+          start
+          end
+        }
+        t {
+          start
+          end
+        }
+        w {
+          start
+          end
+        }
+        th {
+          start
+          end
+        }
+        f {
+          start
+          end
+        }
+        sa {
+          start
+          end
+        }
+        s {
+          start
+          end
+        }
+      }
+      checkedInOnly
+      hideResolvedChats
+      awayMessage {
+        message
+        showTime
+      }
+    }
+    bookingsSettings {
+      enabled
+      checkInTime
+      checkOutTime
+      contactMethods {
+        appMessaging
+        phoneNumber
+        email
+      }
+      maxNumberOfRooms
+      maxPartySize
+      preArrival {
+        notifications {
+          app
+          email
+          reminders {
+            value
+            duration
+          }
+        }
+        minHoursBeforeCheckIn
+        email
+        fields {
+          bookingReference
+          name
+          datesOfStay
+          estimatedTimeOfArrival
+          numberOfAdults
+          numberOfChildren
+          clubMemberNumber
+          countryOfResidence
+          address
+          nationality
+          customFields {
+            title
+            type
+          }
+          dateOfBirth
+          dietaryRequirements
+          purposeOfStay
+          specialOccasions
+          job
+          company
+          passportScan
+          passportNumber
+          foreignNationalPassportNumber
+          party {
+            adult {
+              nextDestination
+              foreignNationalNextDestination
+              job
+              company
+              name
+              countryOfResidence
+              address
+              nationality
+              passportNumber
+              foreignNationalPassportNumber
+              mobile
+              email
+              dateOfBirth
+              dietaryRequirements
+            }
+            child {
+              name
+              countryOfResidence
+              address
+              nationality
+              passportNumber
+              foreignNationalPassportNumber
+              mobile
+              email
+              dateOfBirth
+              dietaryRequirements
+            }
+          }
+        }
+        terms {
+          message
+          link
+        }
+      }
+      arrival {
+        entryMethods {
+          frontDesk
+          appKey
+        }
+        instructions {
+          display
+          steps
+        }
+      }
+      departure {
+        notifications {
+          app
+          email
+          reminders {
+            value
+            duration
+          }
+        }
+      }
+      customization {
+        checkInStart {
+          title
+          message
+        }
+        checkInReview {
+          title
+          message
+        }
+        checkInSuccess {
+          title
+          message
+        }
+        checkInUnsuccessful {
+          title
+          message
+        }
+      }
+    }
+    pmsSettings {
+      pmsId
+      mewsSettings {
+        orderableServiceId
+        bookableServiceId
+      }
+    }
+    customLinks {
+      id
+      enabled
+      name
+      link
+      photo
+    }
+    integrations {
+      mews {
+        provider
+        type
+      }
+      marketplaceApps {
+        id
+        name
+        type
+      }
+    }
+    group {
+      integrations {
+        apaleo {
+          provider
+          type
+        }
+        omnivore {
+          type
+        }
+      }
+      app {
+        aggregator
+        versionCode
+        domain
+        disabled
+        disabledReason
+        metadata {
+          title
+          subtitle
+          shortDescription
+          fullDescription
+          keywords
+          icon
+          screenshots {
+            ios {
+              _1
+              _2
+              _3
+            }
+            ios55 {
+              _1
+              _2
+              _3
+            }
+            android {
+              featureGraphic
+            }
+          }
+          ios {
+            appStoreId
+          }
+        }
+        assets {
+          featuredImage
+          featuredLogo
+        }
+        forceUpdate
+        experimental {
+          hideProfile
+        }
+      }
+      id
+      dateCreated
+      deleted
+      dateUpdated
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

@@ -1,0 +1,13 @@
+mutation updateCustomer($where: CustomerWhereInput!, $data: UpdateCustomerInput!) {
+  updateCustomer(where: $where, data: $data) {
+    firstName
+    lastName
+    nic
+    phone
+    address
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

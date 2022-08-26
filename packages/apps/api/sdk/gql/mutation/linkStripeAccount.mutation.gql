@@ -1,0 +1,4 @@
+mutation linkStripeAccount($authCode: String!) {
+  linkStripeAccount(authCode: $authCode)
+}
+    

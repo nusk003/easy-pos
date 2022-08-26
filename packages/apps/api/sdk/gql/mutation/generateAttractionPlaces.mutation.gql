@@ -1,0 +1,8 @@
+mutation generateAttractionPlaces($categories: [GenerateAttractionPlacesCategoryArgs!]!, $requestBooking: Boolean!, $radius: Float!) {
+  generateAttractionPlaces(
+    categories: $categories
+    requestBooking: $requestBooking
+    radius: $radius
+  )
+}
+    

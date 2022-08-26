@@ -1,0 +1,4 @@
+mutation deletePricelists($where: [WhereInputType!]!) {
+  deletePricelists(where: $where)
+}
+    

@@ -1,0 +1,13 @@
+query product($where: WhereInputType!) {
+  product(where: $where) {
+    name
+    code
+    stock
+    sellPrice
+    costPrice
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

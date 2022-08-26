@@ -1,0 +1,23 @@
+{
+  "name": "@hm/eslint-config",
+  "version": "1.33.0-alpha.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@hm/prettier-config": "^1.33.0-alpha.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^3.9.1",
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-import-resolver-babel-module": "^5.2.0",
+    "eslint-plugin-cypress": "^2.11.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^24.3.1",
+    "eslint-plugin-module-resolver": "^1.2.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.0.5"
+  }
+}

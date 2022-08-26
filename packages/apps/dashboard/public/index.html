@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Hotel Manager" />
+    <link rel="apple-touch-icon" href="logo202.png" />
+    <link
+      rel="manifest"
+      crossorigin="use-credentials"
+      href="%PUBLIC_URL%/manifest.json"
+    />
+    <title>Easy POS</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      #splash {
+        position: fixed;
+        display: none;
+        grid-template-columns: 225.5px auto;
+        width: 100%;
+        height: 100%;
+        user-select: none;
+        background: #fff;
+        z-index: 1000000000;
+        top: 0;
+
+        transition: 0.3s opacity;
+      }
+
+      #splash-sidebar {
+        border-right: 0.5px solid #e8eaef;
+      }
+
+      #splash-header {
+        height: 76px;
+        border-bottom: 0.5px solid #e8eaef;
+      }
+
+      #splash-logo {
+        position: fixed;
+        width: 40px;
+        pointer-events: none;
+        right: 20px;
+        bottom: 20px;
+      }
+
+      @media (max-width: 1200px) {
+        #splash {
+          grid-template-columns: 52.5px auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #splash {
+          grid-template-columns: auto;
+        }
+
+        #splash-sidebar {
+          display: none;
+        }
+
+        #splash-header {
+          height: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="splash">
+      <div id="splash-sidebar"></div>
+      <div id="splash-header"></div>
+      <img id="splash-logo" src="%PUBLIC_URL%/splash-logo.svg" alt="" />
+    </div>
+    <div id="root"></div>
+  </body>
+  <script>
+    try {
+      if (localStorage.getItem('loggedIn') === 'true') {
+        document.querySelector('#splash').style.display = 'grid';
+      }
+    } catch {}
+  </script>
+</html>

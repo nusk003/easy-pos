@@ -1,0 +1,4 @@
+mutation authorizeOmnivore($apiKey: String!) {
+  authorizeOmnivore(apiKey: $apiKey)
+}
+    

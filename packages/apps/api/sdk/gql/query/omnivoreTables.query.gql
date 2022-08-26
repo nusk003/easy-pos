@@ -1,0 +1,6 @@
+query omnivoreTables($locationId: String!) {
+  omnivoreTables(locationId: $locationId) {
+    id
+    name
+  }
+}

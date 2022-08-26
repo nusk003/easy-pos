@@ -1,0 +1,46 @@
+mutation subscribeUserPushNotifications($deviceId: String!, $pushSubscription: WebPushSubscriptionInput!, $sound: Boolean) {
+  subscribeUserPushNotifications(
+    deviceId: $deviceId
+    pushSubscription: $pushSubscription
+    sound: $sound
+  ) {
+    email
+    firstName
+    lastName
+    mobile
+    jobTitle
+    groupAdmin
+    hotelManager
+    developer
+    pushSubscriptions {
+      id
+      enabled
+      pushSubscription {
+        endpoint
+        expirationTime
+        keys {
+          p256dh
+          auth
+        }
+      }
+      device {
+        vendor
+        model
+        type
+        browser
+        os
+      }
+      sound
+      dateUpdated
+    }
+    notifications {
+      orders
+      bookings
+      messages
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

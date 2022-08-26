@@ -1,0 +1,8 @@
+query customDomain {
+  customDomain {
+    id
+    domain
+    configured
+    clientStatus
+  }
+}

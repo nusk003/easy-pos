@@ -1,0 +1,10 @@
+mutation registerGuest($email: String!, $firstName: String!, $lastName: String!, $countryCode: String, $mobile: String) {
+  registerGuest(
+    email: $email
+    firstName: $firstName
+    lastName: $lastName
+    countryCode: $countryCode
+    mobile: $mobile
+  )
+}
+    

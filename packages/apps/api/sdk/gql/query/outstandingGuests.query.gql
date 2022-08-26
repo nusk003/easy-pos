@@ -1,0 +1,24 @@
+query outstandingGuests($guestId: String, $completed: Boolean, $rejected: Boolean, $startDate: DateTime, $endDate: DateTime, $sort: OrdersSortInput, $limit: Float, $offset: Float, $paymentType: PaymentType) {
+  outstandingGuests(
+    guestId: $guestId
+    completed: $completed
+    rejected: $rejected
+    startDate: $startDate
+    endDate: $endDate
+    sort: $sort
+    limit: $limit
+    offset: $offset
+    paymentType: $paymentType
+  ) {
+    data {
+      noOrders
+      totalPrice
+      guest {
+        lastName
+        firstName
+        id
+      }
+    }
+    count
+  }
+}

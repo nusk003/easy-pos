@@ -1,0 +1,13 @@
+query customer($where: WhereInputType!) {
+  customer(where: $where) {
+    firstName
+    lastName
+    nic
+    phone
+    address
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

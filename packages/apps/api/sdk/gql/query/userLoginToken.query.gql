@@ -1,0 +1,9 @@
+query userLoginToken($redirectURL: String, $hotelId: String, $hideSidebar: Boolean) {
+  userLoginToken(
+    redirectURL: $redirectURL
+    hotelId: $hotelId
+    hideSidebar: $hideSidebar
+  ) {
+    loginLink
+  }
+}

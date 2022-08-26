@@ -1,0 +1,34 @@
+mutation createMarketplaceApp($name: String!, $description: String!, $type: IntegrationType!, $logo: String!, $websiteURL: String!, $documentationURL: String!, $helpURL: String!, $redirectURLs: [String!]!, $connectLink: String!, $live: Boolean!, $enabled: Boolean!) {
+  createMarketplaceApp(
+    name: $name
+    description: $description
+    type: $type
+    logo: $logo
+    websiteURL: $websiteURL
+    documentationURL: $documentationURL
+    helpURL: $helpURL
+    redirectURLs: $redirectURLs
+    connectLink: $connectLink
+    live: $live
+    enabled: $enabled
+  ) {
+    name
+    description
+    type
+    logo
+    websiteURL
+    documentationURL
+    helpURL
+    redirectURLs
+    connectLink
+    live
+    enabled
+    developer {
+      id
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

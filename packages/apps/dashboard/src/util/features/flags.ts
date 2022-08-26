@@ -1,0 +1,16 @@
+export const flags = {
+  spaces: false,
+  orders: true,
+  launchkit: true,
+  outstandingOrders: true,
+  payments: true,
+  hmPay: true,
+  stripeConnect: true,
+  whatsNew: true,
+  messages: false,
+  bookings: false,
+  pointsOfInterest: false,
+  marketplace: true,
+  support: true,
+  products: true,
+};

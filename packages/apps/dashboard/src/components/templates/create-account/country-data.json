@@ -1,0 +1,506 @@
+[
+  { "name": "Andorra", "countryCode": "AD", "synonyms": [] },
+  {
+    "name": "United Arab Emirates",
+    "countryCode": "AE",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Afghanistan", "countryCode": "AF", "synonyms": [] },
+  {
+    "name": "Antigua & Barbuda",
+    "countryCode": "AG",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Anguilla", "countryCode": "AI", "synonyms": [] },
+  { "name": "Albania", "countryCode": "AL", "synonyms": [] },
+  { "name": "Armenia", "countryCode": "AM", "synonyms": [] },
+  {
+    "name": "Netherlands Antilles",
+    "countryCode": "AN",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Angola", "countryCode": "AO", "synonyms": [] },
+  { "name": "Antarctica", "countryCode": "AQ", "synonyms": [] },
+  { "name": "Argentina", "countryCode": "AR", "synonyms": [] },
+  { "name": "American Samoa", "countryCode": "AS", "synonyms": [] },
+  { "name": "Austria", "countryCode": "AT", "synonyms": [] },
+  { "name": "Australia", "countryCode": "AU", "synonyms": [] },
+  { "name": "Aruba", "countryCode": "AW", "synonyms": [] },
+  { "name": "Azerbaijan", "countryCode": "AZ", "synonyms": [] },
+  {
+    "name": "Bosnia and Herzegovina",
+    "countryCode": "BA",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Barbados", "countryCode": "BB", "synonyms": [] },
+  { "name": "Bangladesh", "countryCode": "BD", "synonyms": [] },
+  { "name": "Belgium", "countryCode": "BE", "synonyms": [] },
+  { "name": "Burkina Faso", "countryCode": "BF", "synonyms": [] },
+  { "name": "Bulgaria", "countryCode": "BG", "synonyms": [] },
+  { "name": "Bahrain", "countryCode": "BH", "synonyms": [] },
+  { "name": "Burundi", "countryCode": "BI", "synonyms": [] },
+  { "name": "Benin", "countryCode": "BJ", "synonyms": [] },
+  { "name": "Bermuda", "countryCode": "BM", "synonyms": [] },
+  {
+    "name": "Brunei Darussalam",
+    "countryCode": "BN",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Bolivia", "countryCode": "BO", "synonyms": [] },
+  { "name": "Brazil", "countryCode": "BR", "synonyms": [] },
+  { "name": "Bahama", "countryCode": "BS", "synonyms": [] },
+  { "name": "Bhutan", "countryCode": "BT", "synonyms": [] },
+  {
+    "name": "Burma (no longer exists)",
+    "countryCode": "BU",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Bouvet Island", "countryCode": "BV", "synonyms": [] },
+  { "name": "Botswana", "countryCode": "BW", "synonyms": [] },
+  { "name": "Belarus", "countryCode": "BY", "synonyms": [] },
+  { "name": "Belize", "countryCode": "BZ", "synonyms": [] },
+  { "name": "Canada", "countryCode": "CA", "synonyms": [] },
+  {
+    "name": "Cocos (Keeling) Islands",
+    "countryCode": "CC",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  {
+    "name": "Central African Republic",
+    "countryCode": "CF",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Congo", "countryCode": "CG", "synonyms": [] },
+  { "name": "Switzerland", "countryCode": "CH", "synonyms": [] },
+  {
+    "name": "Côte D'ivoire (Ivory Coast)",
+    "countryCode": "CI",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Cook Iislands", "countryCode": "CK", "synonyms": [] },
+  { "name": "Chile", "countryCode": "CL", "synonyms": [] },
+  { "name": "Cameroon", "countryCode": "CM", "synonyms": [] },
+  { "name": "China", "countryCode": "CN", "synonyms": [] },
+  { "name": "Colombia", "countryCode": "CO", "synonyms": [] },
+  { "name": "Costa Rica", "countryCode": "CR", "synonyms": [] },
+  {
+    "name": "Czechoslovakia (no longer exists)",
+    "countryCode": "CS",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Cuba", "countryCode": "CU", "synonyms": [] },
+  { "name": "Cape Verde", "countryCode": "CV", "synonyms": [] },
+  {
+    "name": "Christmas Island",
+    "countryCode": "CX",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Cyprus", "countryCode": "CY", "synonyms": [] },
+  { "name": "Czech Republic", "countryCode": "CZ", "synonyms": [] },
+  {
+    "name": "German Democratic Republic (no longer exists)",
+    "countryCode": "DD",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Germany", "countryCode": "DE", "synonyms": [] },
+  { "name": "Djibouti", "countryCode": "DJ", "synonyms": [] },
+  { "name": "Denmark", "countryCode": "DK", "synonyms": [] },
+  { "name": "Dominica", "countryCode": "DM", "synonyms": [] },
+  {
+    "name": "Dominican Republic",
+    "countryCode": "DO",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Algeria", "countryCode": "DZ", "synonyms": [] },
+  { "name": "Ecuador", "countryCode": "EC", "synonyms": [] },
+  { "name": "Estonia", "countryCode": "EE", "synonyms": [] },
+  { "name": "Egypt", "countryCode": "EG", "synonyms": [] },
+  { "name": "Western Sahara", "countryCode": "EH", "synonyms": [] },
+  { "name": "Eritrea", "countryCode": "ER", "synonyms": [] },
+  { "name": "Spain", "countryCode": "ES", "synonyms": [] },
+  { "name": "Ethiopia", "countryCode": "ET", "synonyms": [] },
+  { "name": "Finland", "countryCode": "FI", "synonyms": [] },
+  { "name": "Fiji", "countryCode": "FJ", "synonyms": [] },
+  {
+    "name": "Falkland Islands (Malvinas)",
+    "countryCode": "FK",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Micronesia", "countryCode": "FM", "synonyms": [] },
+  { "name": "Faroe Islands", "countryCode": "FO", "synonyms": [] },
+  { "name": "France", "countryCode": "FR", "synonyms": [] },
+  {
+    "name": "France, Metropolitan",
+    "countryCode": "FX",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Gabon", "countryCode": "GA", "synonyms": [] },
+  {
+    "name": "United Kingdom",
+    "countryCode": "GB",
+    "currencyCode": "",
+    "synonyms": ["UK", "England", "Wales", "Scotland", "Northern Ireland"]
+  },
+  { "name": "Grenada", "countryCode": "GD", "synonyms": [] },
+  { "name": "Georgia", "countryCode": "GE", "synonyms": [] },
+  { "name": "French Guiana", "countryCode": "GF", "synonyms": [] },
+  { "name": "Ghana", "countryCode": "GH", "synonyms": [] },
+  { "name": "Gibraltar", "countryCode": "GI", "synonyms": [] },
+  { "name": "Greenland", "countryCode": "GL", "synonyms": [] },
+  { "name": "Gambia", "countryCode": "GM", "synonyms": [] },
+  { "name": "Guinea", "countryCode": "GN", "synonyms": [] },
+  { "name": "Guadeloupe", "countryCode": "GP", "synonyms": [] },
+  {
+    "name": "Equatorial Guinea",
+    "countryCode": "GQ",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Greece", "countryCode": "GR", "synonyms": [] },
+  {
+    "name": "South Georgia and the South Sandwich Islands",
+    "countryCode": "GS",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Guatemala", "countryCode": "GT", "synonyms": [] },
+  { "name": "Guam", "countryCode": "GU", "synonyms": [] },
+  { "name": "Guinea-Bissau", "countryCode": "GW", "synonyms": [] },
+  { "name": "Guyana", "countryCode": "GY", "synonyms": [] },
+  { "name": "Hong Kong", "countryCode": "HK", "synonyms": [] },
+  {
+    "name": "Heard & McDonald Islands",
+    "countryCode": "HM",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Honduras", "countryCode": "HN", "synonyms": [] },
+  { "name": "Croatia", "countryCode": "HR", "synonyms": [] },
+  { "name": "Haiti", "countryCode": "HT", "synonyms": [] },
+  { "name": "Hungary", "countryCode": "HU", "synonyms": [] },
+  { "name": "Indonesia", "countryCode": "ID", "synonyms": [] },
+  { "name": "Ireland", "countryCode": "IE", "synonyms": [] },
+  { "name": "Israel", "countryCode": "IL", "synonyms": [] },
+  { "name": "India", "countryCode": "IN", "synonyms": [] },
+  {
+    "name": "British Indian Ocean Territory",
+    "countryCode": "IO",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Iraq", "countryCode": "IQ", "synonyms": [] },
+  {
+    "name": "Islamic Republic of Iran",
+    "countryCode": "IR",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Iceland", "countryCode": "IS", "synonyms": [] },
+  { "name": "Italy", "countryCode": "IT", "synonyms": [] },
+  { "name": "Jamaica", "countryCode": "JM", "synonyms": [] },
+  { "name": "Jordan", "countryCode": "JO", "synonyms": [] },
+  { "name": "Japan", "countryCode": "JP", "synonyms": [] },
+  { "name": "Kenya", "countryCode": "KE", "synonyms": [] },
+  { "name": "Kyrgyzstan", "countryCode": "KG", "synonyms": [] },
+  { "name": "Cambodia", "countryCode": "KH", "synonyms": [] },
+  { "name": "Kiribati", "countryCode": "KI", "synonyms": [] },
+  { "name": "Comoros", "countryCode": "KM", "synonyms": [] },
+  {
+    "name": "St. Kitts and Nevis",
+    "countryCode": "KN",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  {
+    "name": "Korea, Democratic People's Republic of",
+    "countryCode": "KP",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  {
+    "name": "Korea, Republic of",
+    "countryCode": "KR",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Kuwait", "countryCode": "KW", "synonyms": [] },
+  { "name": "Cayman Islands", "countryCode": "KY", "synonyms": [] },
+  { "name": "Kazakhstan", "countryCode": "KZ", "synonyms": [] },
+  {
+    "name": "Lao People's Democratic Republic",
+    "countryCode": "LA",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Lebanon", "countryCode": "LB", "synonyms": [] },
+  { "name": "Saint Lucia", "countryCode": "LC", "synonyms": [] },
+  { "name": "Liechtenstein", "countryCode": "LI", "synonyms": [] },
+  { "name": "Sri Lanka", "countryCode": "LK", "synonyms": [] },
+  { "name": "Liberia", "countryCode": "LR", "synonyms": [] },
+  { "name": "Lesotho", "countryCode": "LS", "synonyms": [] },
+  { "name": "Lithuania", "countryCode": "LT", "synonyms": [] },
+  { "name": "Luxembourg", "countryCode": "LU", "synonyms": [] },
+  { "name": "Latvia", "countryCode": "LV", "synonyms": [] },
+  {
+    "name": "Libyan Arab Jamahiriya",
+    "countryCode": "LY",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Morocco", "countryCode": "MA", "synonyms": [] },
+  { "name": "Monaco", "countryCode": "MC", "synonyms": [] },
+  {
+    "name": "Moldova, Republic of",
+    "countryCode": "MD",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Madagascar", "countryCode": "MG", "synonyms": [] },
+  {
+    "name": "Marshall Islands",
+    "countryCode": "MH",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Mali", "countryCode": "ML", "synonyms": [] },
+  { "name": "Mongolia", "countryCode": "MN", "synonyms": [] },
+  { "name": "Myanmar", "countryCode": "MM", "synonyms": [] },
+  { "name": "Macau", "countryCode": "MO", "synonyms": [] },
+  {
+    "name": "Northern Mariana Islands",
+    "countryCode": "MP",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Martinique", "countryCode": "MQ", "synonyms": [] },
+  { "name": "Mauritania", "countryCode": "MR", "synonyms": [] },
+  { "name": "Monserrat", "countryCode": "MS", "synonyms": [] },
+  { "name": "Malta", "countryCode": "MT", "synonyms": [] },
+  { "name": "Mauritius", "countryCode": "MU", "synonyms": [] },
+  { "name": "Maldives", "countryCode": "MV", "synonyms": [] },
+  { "name": "Malawi", "countryCode": "MW", "synonyms": [] },
+  { "name": "Mexico", "countryCode": "MX", "synonyms": [] },
+  { "name": "Malaysia", "countryCode": "MY", "synonyms": [] },
+  { "name": "Mozambique", "countryCode": "MZ", "synonyms": [] },
+  { "name": "Namibia", "countryCode": "NA", "synonyms": [] },
+  { "name": "New Caledonia", "countryCode": "NC", "synonyms": [] },
+  { "name": "Niger", "countryCode": "NE", "synonyms": [] },
+  { "name": "Norfolk Island", "countryCode": "NF", "synonyms": [] },
+  { "name": "Nigeria", "countryCode": "NG", "synonyms": [] },
+  { "name": "Nicaragua", "countryCode": "NI", "synonyms": [] },
+  { "name": "Netherlands", "countryCode": "NL", "synonyms": [] },
+  { "name": "Norway", "countryCode": "NO", "synonyms": [] },
+  { "name": "Nepal", "countryCode": "NP", "synonyms": [] },
+  { "name": "Nauru", "countryCode": "NR", "synonyms": [] },
+  {
+    "name": "Neutral Zone (no longer exists)",
+    "countryCode": "NT",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Niue", "countryCode": "NU", "synonyms": [] },
+  { "name": "New Zealand", "countryCode": "NZ", "synonyms": [] },
+  { "name": "Oman", "countryCode": "OM", "synonyms": [] },
+  { "name": "Panama", "countryCode": "PA", "synonyms": [] },
+  { "name": "Peru", "countryCode": "PE", "synonyms": [] },
+  {
+    "name": "French Polynesia",
+    "countryCode": "PF",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  {
+    "name": "Papua New Guinea",
+    "countryCode": "PG",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Philippines", "countryCode": "PH", "synonyms": [] },
+  { "name": "Pakistan", "countryCode": "PK", "synonyms": [] },
+  { "name": "Poland", "countryCode": "PL", "synonyms": [] },
+  {
+    "name": "St. Pierre & Miquelon",
+    "countryCode": "PM",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Pitcairn", "countryCode": "PN", "synonyms": [] },
+  { "name": "Puerto Rico", "countryCode": "PR", "synonyms": [] },
+  { "name": "Portugal", "countryCode": "PT", "synonyms": [] },
+  { "name": "Palau", "countryCode": "PW", "synonyms": [] },
+  { "name": "Paraguay", "countryCode": "PY", "synonyms": [] },
+  { "name": "Qatar", "countryCode": "QA", "synonyms": [] },
+  { "name": "Réunion", "countryCode": "RE", "synonyms": [] },
+  { "name": "Romania", "countryCode": "RO", "synonyms": [] },
+  {
+    "name": "Russian Federation",
+    "countryCode": "RU",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Rwanda", "countryCode": "RW", "synonyms": [] },
+  { "name": "Saudi Arabia", "countryCode": "SA", "synonyms": [] },
+  {
+    "name": "Solomon Islands",
+    "countryCode": "SB",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Seychelles", "countryCode": "SC", "synonyms": [] },
+  { "name": "Sudan", "countryCode": "SD", "synonyms": [] },
+  { "name": "Sweden", "countryCode": "SE", "synonyms": [] },
+  { "name": "Singapore", "countryCode": "SG", "synonyms": [] },
+  { "name": "St. Helena", "countryCode": "SH", "synonyms": [] },
+  { "name": "Slovenia", "countryCode": "SI", "synonyms": [] },
+  {
+    "name": "Svalbard & Jan Mayen Islands",
+    "countryCode": "SJ",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Slovakia", "countryCode": "SK", "synonyms": [] },
+  { "name": "Sierra Leone", "countryCode": "SL", "synonyms": [] },
+  { "name": "San Marino", "countryCode": "SM", "synonyms": [] },
+  { "name": "Senegal", "countryCode": "SN", "synonyms": [] },
+  { "name": "Somalia", "countryCode": "SO", "synonyms": [] },
+  { "name": "Suriname", "countryCode": "SR", "synonyms": [] },
+  {
+    "name": "Sao Tome & Principe",
+    "countryCode": "ST",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  {
+    "name": "Union of Soviet Socialist Republics (no longer exists)",
+    "countryCode": "SU",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "El Salvador", "countryCode": "SV", "synonyms": [] },
+  {
+    "name": "Syrian Arab Republic",
+    "countryCode": "SY",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Swaziland", "countryCode": "SZ", "synonyms": [] },
+  {
+    "name": "Turks & Caicos Islands",
+    "countryCode": "TC",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Chad", "countryCode": "TD", "synonyms": [] },
+  {
+    "name": "French Southern Territories",
+    "countryCode": "TF",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Togo", "countryCode": "TG", "synonyms": [] },
+  { "name": "Thailand", "countryCode": "TH", "synonyms": [] },
+  { "name": "Tajikistan", "countryCode": "TJ", "synonyms": [] },
+  { "name": "Tokelau", "countryCode": "TK", "synonyms": [] },
+  { "name": "Turkmenistan", "countryCode": "TM", "synonyms": [] },
+  { "name": "Tunisia", "countryCode": "TN", "synonyms": [] },
+  { "name": "Tonga", "countryCode": "TO", "synonyms": [] },
+  { "name": "East Timor", "countryCode": "TP", "synonyms": [] },
+  { "name": "Turkey", "countryCode": "TR", "synonyms": [] },
+  {
+    "name": "Trinidad & Tobago",
+    "countryCode": "TT",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Tuvalu", "countryCode": "TV", "synonyms": [] },
+  {
+    "name": "Taiwan, Province of China",
+    "countryCode": "TW",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  {
+    "name": "Tanzania, United Republic of",
+    "countryCode": "TZ",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Ukraine", "countryCode": "UA", "synonyms": [] },
+  { "name": "Uganda", "countryCode": "UG", "synonyms": [] },
+  {
+    "name": "United States Minor Outlying Islands",
+    "countryCode": "UM",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  {
+    "name": "United States of America",
+    "countryCode": "US",
+    "currencyCode": "",
+    "synonyms": ["USA", "America"]
+  },
+  { "name": "Uruguay", "countryCode": "UY", "synonyms": [] },
+  { "name": "Uzbekistan", "countryCode": "UZ", "synonyms": [] },
+  {
+    "name": "Vatican City State (Holy See)",
+    "countryCode": "VA",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  {
+    "name": "St. Vincent & the Grenadines",
+    "countryCode": "VC",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Venezuela", "countryCode": "VE", "synonyms": [] },
+  {
+    "name": "British Virgin Islands",
+    "countryCode": "VG",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  {
+    "name": "United States Virgin Islands",
+    "countryCode": "VI",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Viet Nam", "countryCode": "VN", "synonyms": [] },
+  { "name": "Vanuatu", "countryCode": "VU", "synonyms": [] },
+  {
+    "name": "Wallis & Futuna Islands",
+    "countryCode": "WF",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Samoa", "countryCode": "WS", "synonyms": [] },
+  {
+    "name": "Democratic Yemen (no longer exists)",
+    "countryCode": "YD",
+    "currencyCode": "",
+    "synonyms": []
+  },
+  { "name": "Yemen", "countryCode": "YE", "synonyms": [] },
+  { "name": "Mayotte", "countryCode": "YT", "synonyms": [] },
+  { "name": "Yugoslavia", "countryCode": "YU", "synonyms": [] },
+  { "name": "South Africa", "countryCode": "ZA", "synonyms": [] },
+  { "name": "Zambia", "countryCode": "ZM", "synonyms": [] },
+  { "name": "Zaire", "countryCode": "ZR", "synonyms": [] },
+  { "name": "Zimbabwe", "countryCode": "ZW", "synonyms": [] }
+]

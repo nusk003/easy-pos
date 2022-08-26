@@ -1,0 +1,21 @@
+query searchCustomers($query: String, $limit: Float, $offset: Float, $outOfStockItems: Boolean) {
+  searchCustomers(
+    query: $query
+    limit: $limit
+    offset: $offset
+    outOfStockItems: $outOfStockItems
+  ) {
+    data {
+      firstName
+      lastName
+      nic
+      phone
+      address
+      id
+      dateCreated
+      deleted
+      dateUpdated
+    }
+    count
+  }
+}

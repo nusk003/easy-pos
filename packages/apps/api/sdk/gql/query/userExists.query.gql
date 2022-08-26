@@ -1,0 +1,4 @@
+query userExists($where: WhereUserExistsInput!) {
+  userExists(where: $where)
+}
+    

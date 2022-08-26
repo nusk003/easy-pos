@@ -1,0 +1,2375 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type HotelMarketplaceAppSubscription {
+  id: String!
+  endpoint: String!
+  topics: [HotelMarketplaceAppSubscriptionTopic!]!
+}
+
+enum HotelMarketplaceAppSubscriptionTopic {
+  Booking
+  Order
+  Space
+}
+
+type HotelMarketplaceApp {
+  id: String!
+  name: String!
+  type: String!
+}
+
+type Attraction {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  catalog: AttractionCatalog
+  enabled: Boolean
+  description: String
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type AttractionCatalog {
+  categories: [AttractionCategory!]!
+  labels: [AttractionPlaceLabel!]
+}
+
+type AttractionCategory {
+  id: String!
+  name: String!
+  description: String
+  places: [AttractionPlace!]!
+}
+
+type AttractionPlace {
+  id: String
+  placeId: String
+  name: String!
+  address: String!
+  rating: Float
+  note: String
+  coordinates: Coordinates
+  photos: [String!]!
+  description: String
+  website: String
+  phone: String
+  requestBooking: Boolean!
+  labels: [AttractionPlaceLabel!]!
+}
+
+type Coordinates {
+  lat: Float!
+  lng: Float!
+}
+
+type AttractionPlaceLabel {
+  id: String!
+  name: String!
+}
+
+type Role {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  role: UserRole!
+  user: User!
+  hotel: Hotel!
+}
+
+enum UserRole {
+  HotelAdmin
+  HotelMember
+  GroupAdmin
+  SuperAdmin
+}
+
+type UserNotifications {
+  orders: Boolean
+  bookings: Boolean
+  messages: Boolean
+}
+
+type UserPushSubscriptionDevice {
+  vendor: String
+  model: String
+  type: String
+  browser: String
+  os: String
+}
+
+type WebPushSubscriptionKeys {
+  p256dh: String!
+  auth: String!
+}
+
+type WebPushSubscription {
+  endpoint: String!
+  expirationTime: Float
+  keys: WebPushSubscriptionKeys!
+}
+
+type UserPushSubscription {
+  id: String!
+  enabled: Boolean!
+  pushSubscription: WebPushSubscription!
+  device: UserPushSubscriptionDevice!
+  sound: Boolean!
+  dateUpdated: DateTime!
+}
+
+type User {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  email: String!
+  firstName: String
+  lastName: String
+  mobile: String
+  jobTitle: String
+  groupAdmin: Boolean
+  hotelManager: Boolean
+  developer: Boolean
+  pushSubscriptions: [UserPushSubscription!]
+  notifications: UserNotifications
+  group: Group!
+  hotels: [Hotel!]!
+  roles: [Role!]!
+}
+
+type HotelCustomLink {
+  id: String!
+  enabled: Boolean!
+  name: String!
+  link: String!
+  photo: String
+}
+
+type Hotel {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  name: String!
+  telephone: String!
+  address: HotelAddress!
+  website: String!
+  currencyCode: String!
+  countryCode: String!
+  app: HotelApp
+  payouts: HotelPayouts
+  messagesSettings: MessagesSettings
+  bookingsSettings: BookingsSettings
+  pmsSettings: HotelPMSSettings
+  customLinks: [HotelCustomLink!]
+  integrations: HotelIntegrations
+  users: [User!]!
+  group: Group!
+}
+
+type HotelAddress {
+  line1: String!
+  line2: String!
+  town: String!
+  country: String!
+  postalCode: String!
+  coordinates: Coordinates
+  placeId: String
+}
+
+type HotelApp {
+  versionCode: Float
+  domain: String
+  disabled: Boolean
+  disabledReason: String
+  metadata: HotelAppMetadata
+  assets: HotelAppAssets
+  forceUpdate: Boolean @deprecated(reason: "")
+  experimental: HotelAppExperimental
+}
+
+type HotelAppMetadata {
+  title: String
+  subtitle: String
+  shortDescription: String
+  fullDescription: String
+  keywords: String
+  icon: String
+  screenshots: HotelAppScreenshots
+  ios: HotelAppMetadataIOS
+}
+
+type HotelAppScreenshots {
+  ios: HotelAppIOSScreenshots!
+  ios55: HotelAppIOSScreenshots!
+  android: HotelAppAndroidScreenshots!
+}
+
+type HotelAppIOSScreenshots {
+  _1: String!
+  _2: String!
+  _3: String!
+}
+
+type HotelAppAndroidScreenshots {
+  _1: String!
+  _2: String!
+  _3: String!
+  featureGraphic: String!
+}
+
+type HotelAppMetadataIOS {
+  appStoreId: String!
+}
+
+type HotelAppAssets {
+  featuredImage: String
+  featuredLogo: String
+}
+
+type HotelAppExperimental {
+  hideProfile: Boolean
+}
+
+type HotelPayouts {
+  stripe: StripeAccount
+  hm: HMPayAccount
+  enabled: PayoutsStrategy
+}
+
+type StripeAccount {
+  accountId: String!
+  linked: Boolean
+  publicKey: String
+  dateCreated: DateTime!
+}
+
+type HMPayAccount {
+  accountNumberLast4: String!
+  sortCode: String!
+  payoutSchedule: HMPayAccountPayoutSchedule
+  dateCreated: DateTime!
+}
+
+type HMPayAccountPayoutSchedule {
+  interval: PayoutInterval!
+  date: String!
+}
+
+enum PayoutInterval {
+  Daily
+  Weekly
+  Monthly
+}
+
+enum PayoutsStrategy {
+  HotelManagerPay
+  Stripe
+  Disabled
+}
+
+type MessagesSettings {
+  enabled: Boolean
+  availability: Availability
+  checkedInOnly: Boolean
+  hideResolvedChats: Boolean
+  awayMessage: MessagesAwayMessage
+}
+
+type Availability {
+  m: DaysTime
+  t: DaysTime
+  w: DaysTime
+  th: DaysTime
+  f: DaysTime
+  sa: DaysTime
+  s: DaysTime
+}
+
+type DaysTime {
+  start: String!
+  end: String!
+}
+
+type MessagesAwayMessage {
+  message: String
+  showTime: Boolean!
+}
+
+type BookingsSettings {
+  enabled: Boolean!
+  checkInTime: String!
+  checkOutTime: String!
+  contactMethods: BookingContactMethods!
+  maxNumberOfRooms: Float
+  maxPartySize: Float
+  preArrival: BookingPreArrival!
+  arrival: BookingArrival!
+  departure: BookingDeparture!
+  customization: BookingCustomization!
+}
+
+type BookingContactMethods {
+  appMessaging: Boolean
+  phoneNumber: Boolean
+  email: Boolean
+}
+
+type BookingPreArrival {
+  notifications: BookingNotifications!
+  minHoursBeforeCheckIn: Float!
+  email: Boolean
+  fields: BookingFields!
+  terms: [BookingTerm!]
+}
+
+type BookingNotifications {
+  app: Boolean @deprecated(reason: "")
+  email: Boolean @deprecated(reason: "")
+  reminders: [BookingReminder!]
+}
+
+type BookingReminder {
+  value: Float!
+  duration: ReminderDurationType!
+}
+
+enum ReminderDurationType {
+  Minutes
+  Hours
+  Days
+}
+
+type BookingFields {
+  bookingReference: Boolean!
+  name: Boolean!
+  datesOfStay: Boolean!
+  estimatedTimeOfArrival: Boolean!
+  numberOfAdults: Boolean!
+  numberOfChildren: Boolean!
+  clubMemberNumber: Boolean!
+  countryOfResidence: Boolean!
+  address: Boolean!
+  nationality: Boolean!
+  customFields: [CustomField!]
+  dateOfBirth: Boolean!
+  dietaryRequirements: Boolean!
+  purposeOfStay: Boolean
+  specialOccasions: Boolean!
+  job: Boolean!
+  company: Boolean!
+  passportScan: Boolean!
+  passportNumber: Boolean!
+  foreignNationalPassportNumber: Boolean
+  party: BookingPartyFields
+}
+
+type CustomField {
+  title: String!
+  type: CustomFieldType!
+}
+
+enum CustomFieldType {
+  String
+  Boolean
+}
+
+type BookingPartyFields {
+  adult: BookingAdultFields
+  child: BookingChildFields
+}
+
+type BookingAdultFields {
+  name: Boolean!
+  countryOfResidence: Boolean!
+  address: Boolean!
+  nationality: Boolean!
+  passportNumber: Boolean!
+  foreignNationalPassportNumber: Boolean
+  mobile: Boolean!
+  email: Boolean!
+  dateOfBirth: Boolean!
+  dietaryRequirements: Boolean!
+  nextDestination: Boolean!
+  foreignNationalNextDestination: Boolean
+  job: Boolean!
+  company: Boolean!
+}
+
+type BookingChildFields {
+  name: Boolean!
+  countryOfResidence: Boolean!
+  address: Boolean!
+  nationality: Boolean!
+  passportNumber: Boolean!
+  foreignNationalPassportNumber: Boolean
+  mobile: Boolean!
+  email: Boolean!
+  dateOfBirth: Boolean!
+  dietaryRequirements: Boolean!
+}
+
+type BookingTerm {
+  message: String!
+  link: String
+}
+
+type BookingArrival {
+  entryMethods: BookingEntryMethods!
+  instructions: BookingInstructions
+}
+
+type BookingEntryMethods {
+  frontDesk: Boolean
+  appKey: Boolean
+}
+
+type BookingInstructions {
+  display: BookingInstructionsDisplayType!
+  steps: [String!]
+}
+
+enum BookingInstructionsDisplayType {
+  Numbered
+  Bulleted
+}
+
+type BookingDeparture {
+  notifications: BookingNotifications!
+}
+
+type BookingCustomization {
+  checkInStart: BookingCustomizationFields!
+  checkInReview: BookingCustomizationFields!
+  checkInSuccess: BookingCustomizationFields!
+  checkInUnsuccessful: BookingCustomizationFields!
+}
+
+type BookingCustomizationFields {
+  title: String!
+  message: String!
+}
+
+type HotelPMSSettings {
+  pmsId: String
+  mewsSettings: HotelPMSMewsSettings
+}
+
+type HotelPMSMewsSettings {
+  orderableServiceId: String!
+  bookableServiceId: String!
+}
+
+type HotelIntegrations {
+  mews: HotelIntegrationsMews
+  marketplaceApps: [HotelMarketplaceApp!]
+}
+
+type HotelIntegrationsMews {
+  provider: String!
+  type: IntegrationType!
+  accessToken: String!
+  clientToken: String!
+}
+
+enum IntegrationType {
+  PMS
+  POS
+}
+
+type Group {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  name: String!
+  hotelManager: Boolean
+  integrations: GroupIntegrations
+  demo: Boolean
+  app: GroupApp
+  hotels: [Hotel!]!
+  users: [User!]!
+}
+
+type GroupIntegrations {
+  apaleo: GroupIntegrationsApaleo
+  omnivore: GroupIntegrationsOmnivore
+}
+
+type GroupIntegrationsApaleo {
+  provider: IntegrationProvider!
+  type: IntegrationType!
+  refreshToken: String!
+}
+
+enum IntegrationProvider {
+  Apaleo
+  Mews
+  Agilysys
+  Opera
+  Protel
+  RoomKeyPMS
+  Guestline
+  RMS
+  ClockPMS
+  WebRezPro
+  Dinerware
+  FocusPos
+  MaitreD
+  Micros3700
+  MicrosSimphony
+  MicrosSimphonyFirstEdition
+  NcrAloha
+  PosItouch
+  Squirrel
+  Xpient
+  OmnivoreVirtualPos
+}
+
+type GroupIntegrationsOmnivore {
+  type: IntegrationType!
+  apiKey: String!
+}
+
+type GroupApp {
+  versionCode: Float
+  domain: String
+  disabled: Boolean
+  disabledReason: String
+  metadata: HotelAppMetadata
+  assets: HotelAppAssets
+  forceUpdate: Boolean @deprecated(reason: "")
+  experimental: HotelAppExperimental
+  aggregator: Boolean
+}
+
+type BookingToggleQuestion {
+  title: String!
+  type: CustomFieldType!
+  result: String
+  toggle: Boolean
+}
+
+type BookingDetails {
+  toggleQuestion: [BookingToggleQuestion!]!
+}
+
+type BookingParty {
+  id: String!
+  firstName: String
+  lastName: String
+  ageGroup: AgeGroup!
+  email: String
+  mobile: String
+  mobileCountryCode: String
+  countryOfResidence: String
+  address: String
+  nationality: String
+  passportNumber: String
+  nextDestination: String
+  dateOfBirth: DateTime
+  dietaryRequirements: String
+  purposeOfStay: String @deprecated(reason: "This field has been moved to booking level")
+  specialOccasions: String
+  job: String
+  company: String
+  pmsId: String
+  carRegistration: String
+}
+
+enum AgeGroup {
+  Adult
+  Child
+}
+
+type Booking {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  roomNumber: String
+  bookingReference: String
+  checkInDate: DateTime
+  checkOutDate: DateTime
+  carRegistration: String
+  party: [BookingParty!]
+  bookingDetails: BookingDetails
+  roomType: String
+  estimatedTimeOfArrival: String
+  numberOfAdults: Float
+  numberOfChildren: Float
+  clubMemberNumber: String
+  purposeOfStay: String
+  pmsId: String
+  dateReviewed: DateTime
+  dateSubmitted: DateTime
+  dateCheckedIn: DateTime
+  dateCheckedOut: DateTime
+  dateCanceled: DateTime
+  guest: Guest
+  status: BookingStatus!
+}
+
+enum BookingStatus {
+  Created
+  Submitted
+  Reviewed
+  CheckedIn
+  Canceled
+}
+
+type Space {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  name: String!
+  location: String!
+  availability: Availability!
+  enabled: Boolean
+  pricelists: [Pricelist!]!
+}
+
+type Pricelist {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  name: String!
+  description: String
+  availability: Availability!
+  commerce: Boolean
+  collection: [PricelistCollection!]
+  delivery: [PricelistDelivery!]
+  catalog: PricelistCatalog
+  posSettings: PricelistPOSSettings
+  promotions: PricelistPromotions
+  surcharges: [PricelistSurcharge!]
+  enabledPayments: PricelistEnabledPayments
+  autoApprove: Boolean
+  feedback: Boolean
+  posId: String
+  space: Space!
+}
+
+type PricelistCollection {
+  enabled: Boolean
+  type: PricelistCollectionType!
+}
+
+enum PricelistCollectionType {
+  Other
+}
+
+type PricelistDelivery {
+  enabled: Boolean
+  type: PricelistDeliveryType!
+}
+
+enum PricelistDeliveryType {
+  Room
+  Table
+  Other
+}
+
+type PricelistCatalog {
+  categories: [PricelistCategory!]!
+  labels: [PricelistLabel!]
+}
+
+type PricelistCategory {
+  id: String!
+  name: String!
+  description: String
+  posId: String
+  items: [PricelistItem!]!
+}
+
+type PricelistItem {
+  id: String!
+  name: String!
+  description: String
+  photos: [String!]
+  modifiers: [PricelistItemModifier!]!
+  regularPrice: Float!
+  roomServicePrice: Float!
+  posSettings: PricelistItemPOSSettings
+  labels: [PricelistLabel!]
+  note: String
+  posId: String
+  snoozed: Boolean
+  promotions: PricelistPromotions
+}
+
+type PricelistItemModifier {
+  id: String!
+  name: String!
+  posId: String
+  required: Boolean!
+  maxSelection: Float!
+  options: [PricelistItemOption!]!
+}
+
+type PricelistItemOption {
+  id: String!
+  name: String!
+  posId: String
+  price: Float!
+}
+
+type PricelistItemPOSSettings {
+  roomService: PricelistItemPOSPriceLevel!
+  tableService: PricelistItemPOSPriceLevel!
+  priceLevels: [PricelistItemPOSPriceLevel!]
+}
+
+type PricelistItemPOSPriceLevel {
+  posId: String!
+  name: String!
+  price: Float!
+}
+
+type PricelistLabel {
+  id: String!
+  name: String!
+}
+
+type PricelistPromotions {
+  discounts: [PricelistDiscount!]
+}
+
+type PricelistDiscount {
+  id: String!
+  name: String!
+  value: Float!
+  available: Boolean
+  level: PricelistDiscountLevel
+  minOrderAmount: Float
+  type: PricelistMultiplierType!
+  posSettings: PricelistDiscountPOSSettings
+  posId: String
+  delivery: [PricelistDelivery!]
+  collection: [PricelistCollection!]
+  count: Float
+}
+
+enum PricelistDiscountLevel {
+  Order
+  Item
+}
+
+enum PricelistMultiplierType {
+  Absolute
+  Percentage
+}
+
+type PricelistDiscountPOSSettings {
+  open: Boolean
+}
+
+type PricelistPOSSettings {
+  enabled: Boolean
+  posId: String
+  revenueCenterId: String
+  tableService: PricelistPOSSettingsFulfilment!
+  roomService: PricelistPOSSettingsFulfilment!
+  employeeId: String
+  provider: String
+}
+
+type PricelistPOSSettingsFulfilment {
+  posId: String!
+  name: String!
+}
+
+type PricelistSurcharge {
+  id: String!
+  name: String!
+  value: Float!
+  type: PricelistMultiplierType!
+  delivery: [PricelistDelivery!]
+  collection: [PricelistCollection!]
+}
+
+type PricelistEnabledPayments {
+  card: Boolean
+  roomBill: Boolean
+  cash: Boolean
+}
+
+type Message {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  text: String!
+  author: MessageAuthor!
+  guest: Guest!
+  user: User!
+  thread: Thread!
+}
+
+enum MessageAuthor {
+  Guest
+  User
+}
+
+type Thread {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  resolved: Boolean
+  guest: Guest!
+  order: Order
+  lastMessage: Message
+}
+
+type Order {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  dateApproved: DateTime
+  dateReady: DateTime
+  dateCompleted: DateTime
+  dateScheduled: DateTime
+  items: [OrderItem!]!
+  totalPrice: Float!
+  roomNumber: String!
+  notes: String
+  cardDetails: CardDetails
+  paymentProvider: PayoutsStrategy
+  paymentType: PaymentType!
+  orderReference: String
+  posId: String
+  paymentIntentId: String
+  subtotal: Float!
+  discount: PriceMultiplier
+  surcharges: [PriceMultiplier!]
+  reasonRejected: String
+  rejected: Boolean
+  delivery: PricelistDeliveryType
+  collection: PricelistCollectionType
+  paid: Boolean
+  feedback: OrderFeedback
+  guest: Guest!
+  space: Space!
+  pricelist: Pricelist!
+  thread: Thread
+  status: OrderStatus!
+}
+
+type OrderItem {
+  id: String!
+  name: String!
+  posId: String
+  modifiers: [OrderItemModifier!]!
+  discount: PriceMultiplier
+  quantity: Float!
+  roomServicePrice: Float
+  regularPrice: Float
+  posSettings: PricelistPOSSettingsFulfilment
+  totalPrice: Float!
+  omnivoreSettings: OrderItemPOSSettings
+}
+
+type OrderItemModifier {
+  id: String!
+  name: String!
+  posId: String
+  options: [OrderItemOption!]!
+}
+
+type OrderItemOption {
+  id: String!
+  name: String!
+  posId: String
+  price: Float!
+}
+
+type PriceMultiplier {
+  id: String!
+  posId: String
+  value: Float!
+  type: PricelistMultiplierType!
+  name: String!
+}
+
+type OrderItemPOSSettings {
+  tableService: PricelistItemPOSPriceLevel
+  roomService: PricelistItemPOSPriceLevel
+}
+
+type CardDetails {
+  id: String
+  country: String
+  brand: String!
+  last4: String!
+}
+
+enum PaymentType {
+  Cash
+  Card
+  RoomBill
+  None
+}
+
+type OrderFeedback {
+  rating: Float
+}
+
+enum OrderStatus {
+  Waiting
+  Approved
+  Ready
+  Completed
+  Rejected
+  Canceled
+}
+
+type PushNotification {
+  hotel: String!
+  tokens: [String!]!
+}
+
+type Guest {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  deviceId: String
+  email: String
+  firstName: String
+  lastName: String
+  dateLastSeen: DateTime
+  mobile: String
+  mobileCountryCode: String
+  dateOfBirth: DateTime
+  countryOfResidence: String
+  address: String
+  nationality: String
+  passportNumber: String
+  dietaryRequirements: String
+  company: String
+  job: String
+  pmsId: String
+  pushNotificationToken: String @deprecated(reason: "")
+  pushNotifications: [PushNotification!]!
+  bookings: [Booking!]
+  threads: [Thread!]!
+  orders: [Order!]!
+  hotels: Hotel!
+  groups: [Group!]!
+}
+
+type MarketplaceApp {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  name: String!
+  description: String!
+  type: IntegrationType!
+  logo: String!
+  websiteURL: String!
+  documentationURL: String!
+  helpURL: String!
+  redirectURLs: [String!]!
+  connectLink: String!
+  live: Boolean!
+  enabled: Boolean!
+  developer: User!
+}
+
+type Product {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  name: String!
+  code: String!
+  stock: Float!
+  sellPrice: Float!
+  costPrice: Float!
+}
+
+type Customer {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  firstName: String!
+  lastName: String!
+  nic: String!
+  phone: String!
+  address: String!
+}
+
+type Sale {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  items: [SaleItem!]!
+  totalPrice: Float!
+  salesReference: String
+  subtotal: Float!
+  customer: Customer!
+  instalmentPlan: SaleInstalmentPlan!
+}
+
+type SaleItem {
+  id: String!
+  productId: String!
+  title: String!
+  quantity: Float!
+  totalSell: Float!
+  totalCost: Float!
+}
+
+type SaleInstalmentPlan {
+  noTerms: Float!
+  initialPayment: Float!
+  terms: [SaleInstalmentTerm!]!
+}
+
+type SaleInstalmentTerm {
+  id: String!
+  dueDate: DateTime
+  dueAmount: Float!
+  paidAmount: Float!
+  completed: Boolean!
+}
+
+type ApaleoPropertyResponse {
+  id: String!
+  name: String!
+}
+
+type OmnivoreLocationsResponse {
+  id: String!
+  provider: String!
+}
+
+type OmnivoreDiscountsResponse {
+  id: String!
+  value: Float!
+  name: String!
+  available: Boolean
+  order: Boolean
+  item: Boolean
+  open: Boolean
+  maxAmount: Float
+  minAmount: Float
+  maxPercent: Float
+  minPercent: Float
+  minOrderAmount: Float
+  type: PricelistMultiplierType!
+  posId: String
+}
+
+type OmnivoreOption {
+  id: String!
+  name: String!
+}
+
+type OmnivoreOptionsResponse {
+  employees: [OmnivoreOption!]!
+  orderTypes: [OmnivoreOption!]!
+  revenueCenters: [OmnivoreOption!]!
+}
+
+type GetCustomDomainResponse {
+  id: String!
+  domain: String!
+  configured: Boolean!
+  clientStatus: String!
+}
+
+type SearchGuestsResponse {
+  data: [Guest!]!
+  count: Float!
+}
+
+type GuestWithStatistics {
+  id: String!
+  dateCreated: DateTime!
+  deleted: Boolean
+  dateUpdated: DateTime!
+  deviceId: String
+  email: String
+  firstName: String
+  lastName: String
+  dateLastSeen: DateTime
+  mobile: String
+  mobileCountryCode: String
+  dateOfBirth: DateTime
+  countryOfResidence: String
+  address: String
+  nationality: String
+  passportNumber: String
+  dietaryRequirements: String
+  company: String
+  job: String
+  pmsId: String
+  pushNotificationToken: String @deprecated(reason: "")
+  pushNotifications: [PushNotification!]!
+  bookings: [Booking!]
+  threads: [Thread!]!
+  orders: [Order!]!
+  hotels: Hotel!
+  groups: [Group!]!
+  totalSpend: Float!
+  ordersCount: Float!
+  itemsCount: Float!
+}
+
+type GooglePlaceHotelSearchResponse {
+  placeId: String!
+  title: String!
+  description: String!
+}
+
+type GooglePlaceHotelDetailsResponse {
+  placeId: String!
+  name: String!
+  line1: String!
+  line2: String!
+  town: String!
+  postalCode: String!
+  country: String!
+  countryCode: String!
+  coordinates: Coordinates!
+}
+
+type RegisterGroupAdminResponse {
+  user: User!
+  hotel: Hotel!
+  group: Group!
+}
+
+type GetUserLoginTokenResponse {
+  loginLink: String!
+}
+
+type ConnectMarketplaceAppResponse {
+  redirectURL: String!
+}
+
+type GetAccessTokenResponse {
+  accessToken: String!
+  refreshToken: String!
+  ttl: Float!
+  grantLevel: [AccessTokenGrantLevel!]!
+}
+
+enum AccessTokenGrantLevel {
+  User
+  Hotel
+}
+
+type SearchCustomAttractionPlaceResponse {
+  placeId: String!
+  title: String!
+  description: String!
+}
+
+type GenerateAttractionPlacesCategoryResponse {
+  name: String!
+}
+
+type MewsServiceResponse {
+  id: String!
+  name: String!
+  type: String!
+}
+
+type BookingAnalyticsResponse {
+  noArrivals: Float!
+  noDepartures: Float!
+  noSubmittedBookings: Float!
+}
+
+type SearchBookingsResponse {
+  data: [Booking!]!
+  count: Float!
+}
+
+type SearchCustomersResponse {
+  data: [Customer!]!
+  count: Float!
+}
+
+type GuestPaymentMethodsResponse {
+  id: String!
+  brand: String!
+  country: String
+  last4: String!
+}
+
+type PayoutValueResponse {
+  totalPrice: Float!
+  arrivalDate: DateTime
+}
+
+type HMPayAccountResponse {
+  accountNumberLast4: String!
+  sortCode: String!
+  payoutSchedule: HMPayAccountPayoutSchedule
+  dateCreated: DateTime!
+}
+
+type StripeAccountResponse {
+  accountNumberLast4: String
+  sortCode: String
+  payoutSchedule: HMPayAccountPayoutSchedule
+  dateCreated: DateTime!
+  payoutsEnabled: Boolean!
+  paymentsEnabled: Boolean!
+  accountLink: String
+}
+
+type CreateStripeAccountResponse {
+  accountLink: String!
+}
+
+type PricelistFeedback {
+  averageRating: Float!
+  noReviews: Float!
+  recentOrders: [Order!]!
+  ratings: [PricelistFeedbackRating!]!
+}
+
+type PricelistFeedbackRating {
+  value: Float!
+  count: Float!
+  percentage: Float!
+}
+
+type CreateOrderResponse {
+  order: Order
+  paymentIntent: OrderPaymentIntent
+}
+
+type OrderPaymentIntent {
+  status: PaymentIntentStatus!
+  clientSecret: String
+}
+
+enum PaymentIntentStatus {
+  RequiresPaymentMethod
+  RequiresConfirmation
+  RequiresAction
+  Processing
+  RequiresCapture
+  Canceled
+  Succeeded
+}
+
+type SearchOrdersResponse {
+  data: [Order!]!
+  count: Float!
+}
+
+type SearchOutstandingOrdersResponse {
+  data: [Order!]!
+  count: Float!
+}
+
+type OutstandingGuest {
+  noOrders: Float!
+  totalPrice: Float!
+  guest: Guest!
+}
+
+type OutstandingGuestsResponse {
+  data: [OutstandingGuest!]!
+  count: Float!
+}
+
+type OutstandingOrdersStatistics {
+  paymentType: PaymentType!
+  noOrders: Float!
+  totalPrice: Float!
+  noGuests: Float!
+}
+
+type OutstandingOrdersStatisticsResponse {
+  cash: OutstandingOrdersStatistics!
+  roomBill: OutstandingOrdersStatistics!
+}
+
+type SearchProductsResponse {
+  data: [Product!]!
+  count: Float!
+}
+
+type CreateSaleResponse {
+  sale: Sale
+}
+
+type SearchSalesResponse {
+  data: [Sale!]!
+  count: Float!
+}
+
+input HotelAppExperimentalInput {
+  hideProfile: Boolean
+}
+
+input HotelAppMetadataIOSInput {
+  appStoreId: String!
+}
+
+input HotelAppIOSScreenshotsInput {
+  _1: String!
+  _2: String!
+  _3: String!
+}
+
+input HotelAppAndroidScreenshotsInput {
+  _1: String!
+  _2: String!
+  _3: String!
+  featureGraphic: String!
+}
+
+input HotelAppScreenshotsInput {
+  ios: HotelAppIOSScreenshotsInput!
+  ios55: HotelAppIOSScreenshotsInput!
+  android: HotelAppAndroidScreenshotsInput!
+}
+
+input HotelAppMetadataInput {
+  title: String
+  subtitle: String
+  shortDescription: String
+  fullDescription: String
+  keywords: String
+  icon: String
+  screenshots: HotelAppScreenshotsInput
+  ios: HotelAppMetadataIOSInput
+}
+
+input HotelAppAssetsInput {
+  featuredImage: String
+  featuredLogo: String
+}
+
+input HotelAppInput {
+  versionCode: Float
+  domain: String
+  disabled: Boolean
+  disabledReason: String
+  metadata: HotelAppMetadataInput
+  assets: HotelAppAssetsInput
+  forceUpdate: Boolean
+  experimental: HotelAppExperimentalInput
+}
+
+input BookingChildFieldsInput {
+  name: Boolean!
+  countryOfResidence: Boolean!
+  address: Boolean!
+  nationality: Boolean!
+  passportNumber: Boolean!
+  foreignNationalPassportNumber: Boolean
+  mobile: Boolean!
+  email: Boolean!
+  dateOfBirth: Boolean!
+  dietaryRequirements: Boolean!
+}
+
+input BookingAdultFieldsInput {
+  name: Boolean!
+  countryOfResidence: Boolean!
+  address: Boolean!
+  nationality: Boolean!
+  passportNumber: Boolean!
+  foreignNationalPassportNumber: Boolean
+  mobile: Boolean!
+  email: Boolean!
+  dateOfBirth: Boolean!
+  dietaryRequirements: Boolean!
+  nextDestination: Boolean!
+  foreignNationalNextDestination: Boolean
+  job: Boolean!
+  company: Boolean!
+}
+
+input BookingPartyFieldsInput {
+  adult: BookingAdultFieldsInput
+  child: BookingChildFieldsInput
+}
+
+input BookingFieldsInput {
+  bookingReference: Boolean!
+  name: Boolean!
+  datesOfStay: Boolean!
+  estimatedTimeOfArrival: Boolean!
+  numberOfAdults: Boolean!
+  numberOfChildren: Boolean!
+  clubMemberNumber: Boolean!
+  countryOfResidence: Boolean!
+  address: Boolean!
+  nationality: Boolean!
+  customFields: [CustomFieldInput!]
+  dateOfBirth: Boolean!
+  dietaryRequirements: Boolean!
+  purposeOfStay: Boolean
+  specialOccasions: Boolean!
+  job: Boolean!
+  company: Boolean!
+  passportScan: Boolean!
+  passportNumber: Boolean!
+  foreignNationalPassportNumber: Boolean
+  party: BookingPartyFieldsInput
+}
+
+input CustomFieldInput {
+  title: String!
+  type: CustomFieldType!
+}
+
+input BookingContactMethodsInput {
+  appMessaging: Boolean
+  phoneNumber: Boolean
+  email: Boolean
+}
+
+input BookingReminderInput {
+  value: Float!
+  duration: ReminderDurationType!
+}
+
+input BookingNotificationsInput {
+  app: Boolean
+  email: Boolean
+  reminders: [BookingReminderInput!]
+}
+
+input BookingTermInput {
+  message: String!
+  link: String
+}
+
+input BookingPreArrivalInput {
+  notifications: BookingNotificationsInput!
+  minHoursBeforeCheckIn: Float!
+  email: Boolean
+  fields: BookingFieldsInput!
+  terms: [BookingTermInput!]
+}
+
+input BookingEntryMethodsInput {
+  frontDesk: Boolean
+  appKey: Boolean
+}
+
+input BookingInstructionsInput {
+  display: BookingInstructionsDisplayType!
+  steps: [String!]
+}
+
+input BookingArrivalInput {
+  entryMethods: BookingEntryMethodsInput!
+  instructions: BookingInstructionsInput
+}
+
+input BookingDepartureInput {
+  notifications: BookingNotificationsInput!
+}
+
+input BookingCustomizationFieldsInput {
+  title: String!
+  message: String!
+}
+
+input BookingCustomizationInput {
+  checkInStart: BookingCustomizationFieldsInput!
+  checkInReview: BookingCustomizationFieldsInput!
+  checkInSuccess: BookingCustomizationFieldsInput!
+  checkInUnsuccessful: BookingCustomizationFieldsInput!
+}
+
+input BookingsSettingsInput {
+  enabled: Boolean!
+  checkInTime: String!
+  checkOutTime: String!
+  contactMethods: BookingContactMethodsInput!
+  maxNumberOfRooms: Float
+  maxPartySize: Float
+  preArrival: BookingPreArrivalInput!
+  arrival: BookingArrivalInput!
+  departure: BookingDepartureInput!
+  customization: BookingCustomizationInput!
+}
+
+input HotelMarketplaceAppSubscriptionInput {
+  id: String!
+  endpoint: String!
+  topics: [HotelMarketplaceAppSubscriptionTopic!]!
+}
+
+input HotelMarketplaceAppInput {
+  id: String!
+  name: String!
+  type: String!
+}
+
+input HotelIntegrationsMewsInput {
+  provider: String!
+  type: IntegrationType!
+  accessToken: String!
+  clientToken: String!
+}
+
+input HotelIntegrationsInput {
+  mews: HotelIntegrationsMewsInput
+  marketplaceApps: [HotelMarketplaceAppInput!]
+}
+
+input MessagesAwayMessageInput {
+  message: String
+  showTime: Boolean!
+}
+
+input MessagesSettingsInput {
+  enabled: Boolean
+  availability: AvailabilityInput
+  checkedInOnly: Boolean
+  hideResolvedChats: Boolean
+  awayMessage: MessagesAwayMessageInput
+}
+
+input AvailabilityInput {
+  m: DaysTimeInput
+  t: DaysTimeInput
+  w: DaysTimeInput
+  th: DaysTimeInput
+  f: DaysTimeInput
+  sa: DaysTimeInput
+  s: DaysTimeInput
+}
+
+input DaysTimeInput {
+  start: String!
+  end: String!
+}
+
+input StripeAccountInput {
+  accountId: String!
+  linked: Boolean
+  publicKey: String
+  dateCreated: DateTime!
+}
+
+input HMPayAccountPayoutScheduleInput {
+  interval: PayoutInterval!
+  date: String!
+}
+
+input HMPayAccountInput {
+  accountNumberLast4: String!
+  sortCode: String!
+  payoutSchedule: HMPayAccountPayoutScheduleInput
+  dateCreated: DateTime!
+}
+
+input HotelPayoutsInput {
+  stripe: StripeAccountInput
+  hm: HMPayAccountInput
+  enabled: PayoutsStrategy
+}
+
+input HotelPMSMewsSettingsInput {
+  orderableServiceId: String!
+  bookableServiceId: String!
+}
+
+input HotelPMSSettingsInput {
+  pmsId: String
+  mewsSettings: HotelPMSMewsSettingsInput
+}
+
+input AttractionCoordinatesInput {
+  lat: Float!
+  lng: Float!
+}
+
+input AttractionPlaceLabelInput {
+  id: String!
+  name: String!
+}
+
+input AttractionPlaceInput {
+  id: String
+  placeId: String
+  name: String!
+  address: String!
+  rating: Float
+  note: String
+  coordinates: AttractionCoordinatesInput
+  photos: [String!]!
+  description: String
+  website: String
+  phone: String
+  requestBooking: Boolean = false
+  labels: [AttractionPlaceLabelInput!] = []
+}
+
+input AttractionCategoryInput {
+  id: String!
+  name: String!
+  description: String
+  places: [AttractionPlaceInput!]!
+}
+
+input AttractionCatalogInput {
+  categories: [AttractionCategoryInput!]!
+  labels: [AttractionPlaceLabelInput!]
+}
+
+input UserNotificationsInput {
+  orders: Boolean
+  bookings: Boolean
+  messages: Boolean
+}
+
+input WebPushSubscriptionKeysInput {
+  p256dh: String!
+  auth: String!
+}
+
+input WebPushSubscriptionInput {
+  endpoint: String!
+  expirationTime: Float
+  keys: WebPushSubscriptionKeysInput!
+}
+
+input HotelCustomLinkInput {
+  id: String!
+  enabled: Boolean!
+  name: String!
+  link: String!
+  photo: String
+}
+
+input HotelAddressInput {
+  line1: String!
+  line2: String!
+  town: String!
+  country: String!
+  postalCode: String!
+  coordinates: AttractionCoordinatesInput
+  placeId: String
+}
+
+input GroupIntegrationsOmnivoreInput {
+  type: IntegrationType!
+  apiKey: String!
+}
+
+input GroupIntegrationsApaleoInput {
+  provider: IntegrationProvider!
+  type: IntegrationType!
+  refreshToken: String!
+}
+
+input GroupIntegrationsInput {
+  apaleo: GroupIntegrationsApaleoInput
+  omnivore: GroupIntegrationsOmnivoreInput
+}
+
+input GroupAppInput {
+  versionCode: Float
+  domain: String
+  disabled: Boolean
+  disabledReason: String
+  metadata: HotelAppMetadataInput
+  assets: HotelAppAssetsInput
+  forceUpdate: Boolean
+  experimental: HotelAppExperimentalInput
+  aggregator: Boolean
+}
+
+input BookingToggleQuestionInput {
+  title: String!
+  type: CustomFieldType!
+  result: String
+  toggle: Boolean
+}
+
+input BookingDetailsInput {
+  toggleQuestion: [BookingToggleQuestionInput!]!
+}
+
+input BookingPartyInput {
+  id: String!
+  firstName: String
+  lastName: String
+  ageGroup: AgeGroup!
+  email: String
+  mobile: String
+  mobileCountryCode: String
+  countryOfResidence: String
+  address: String
+  nationality: String
+  passportNumber: String
+  nextDestination: String
+  dateOfBirth: DateTime
+  dietaryRequirements: String
+  purposeOfStay: String
+  specialOccasions: String
+  job: String
+  company: String
+  pmsId: String
+  carRegistration: String
+}
+
+input PricelistCollectionInput {
+  enabled: Boolean
+  type: PricelistCollectionType!
+}
+
+input PricelistDeliveryInput {
+  enabled: Boolean
+  type: PricelistDeliveryType!
+}
+
+input PricelistLabelInput {
+  id: String!
+  name: String!
+}
+
+input PricelistItemOptionInput {
+  id: String!
+  name: String!
+  posId: String
+  price: Float!
+}
+
+input PricelistItemModifierInput {
+  id: String!
+  name: String!
+  posId: String
+  required: Boolean!
+  maxSelection: Float!
+  options: [PricelistItemOptionInput!]!
+}
+
+input PricelistDiscountPOSSettingsInput {
+  open: Boolean
+}
+
+input PricelistDiscountInput {
+  id: String!
+  name: String!
+  value: Float!
+  available: Boolean
+  level: PricelistDiscountLevel
+  minOrderAmount: Float
+  type: PricelistMultiplierType!
+  posSettings: PricelistDiscountPOSSettingsInput
+  posId: String
+  delivery: [PricelistDeliveryInput!]
+  collection: [PricelistCollectionInput!]
+  count: Float
+}
+
+input PricelistPromotionsInput {
+  discounts: [PricelistDiscountInput!]
+}
+
+input PricelistItemPOSPriceLevelInput {
+  posId: String!
+  name: String!
+  price: Float!
+}
+
+input PricelistPOSSettingsFulfilmentInput {
+  posId: String!
+  name: String!
+}
+
+input PricelistItemPOSSettingsInput {
+  roomService: PricelistItemPOSPriceLevelInput!
+  tableService: PricelistItemPOSPriceLevelInput!
+  priceLevels: [PricelistItemPOSPriceLevelInput!]
+}
+
+input PricelistItemInput {
+  id: String!
+  name: String!
+  description: String
+  photos: [String!]
+  modifiers: [PricelistItemModifierInput!]!
+  regularPrice: Float!
+  roomServicePrice: Float!
+  posSettings: PricelistItemPOSSettingsInput
+  labels: [PricelistLabelInput!]
+  note: String
+  posId: String
+  snoozed: Boolean
+  promotions: PricelistPromotionsInput
+}
+
+input PricelistCategoryInput {
+  id: String!
+  name: String!
+  description: String
+  posId: String
+  items: [PricelistItemInput!]!
+}
+
+input PricelistCatalogInput {
+  categories: [PricelistCategoryInput!]!
+  labels: [PricelistLabelInput!]
+}
+
+input PricelistEnabledPaymentsInput {
+  card: Boolean
+  roomBill: Boolean
+  cash: Boolean
+}
+
+input PricelistSurchargeInput {
+  id: String!
+  name: String!
+  value: Float!
+  type: PricelistMultiplierType!
+  delivery: [PricelistDeliveryInput!]
+  collection: [PricelistCollectionInput!]
+}
+
+input PricelistPOSSettingsInput {
+  enabled: Boolean
+  posId: String
+  revenueCenterId: String
+  tableService: PricelistPOSSettingsFulfilmentInput!
+  roomService: PricelistPOSSettingsFulfilmentInput!
+  employeeId: String
+  provider: String
+}
+
+input CardDetailsInput {
+  id: String
+  country: String
+  brand: String!
+  last4: String!
+}
+
+input PriceMultiplierInput {
+  id: String!
+  posId: String
+  value: Float!
+  type: PricelistMultiplierType!
+  name: String!
+}
+
+input OrderItemOptionInput {
+  id: String!
+  name: String!
+  posId: String
+  price: Float!
+}
+
+input OrderItemModifierInput {
+  id: String!
+  name: String!
+  posId: String
+  options: [OrderItemOptionInput!]!
+}
+
+input OrderItemPOSSettingsInput {
+  tableService: PricelistItemPOSPriceLevelInput
+  roomService: PricelistItemPOSPriceLevelInput
+}
+
+input OrderItemInput {
+  id: String!
+  name: String!
+  posId: String
+  modifiers: [OrderItemModifierInput!]!
+  discount: PriceMultiplierInput
+  quantity: Float!
+  roomServicePrice: Float
+  regularPrice: Float
+  posSettings: PricelistPOSSettingsFulfilmentInput
+  totalPrice: Float!
+  omnivoreSettings: OrderItemPOSSettingsInput
+}
+
+input OrderFeedbackInput {
+  rating: Float
+}
+
+input SaleItemInput {
+  id: String!
+  productId: String!
+  title: String!
+  quantity: Float!
+  totalSell: Float!
+  totalCost: Float!
+}
+
+input SaleInstalmentTermInput {
+  id: String!
+  dueDate: DateTime
+  dueAmount: Float!
+  paidAmount: Float!
+  completed: Boolean = true
+}
+
+input SaleInstalmentPlanInput {
+  noTerms: Float!
+  initialPayment: Float!
+  terms: [SaleInstalmentTermInput!]!
+}
+
+type Query {
+  attraction: Attraction
+  generateAttractionPlacesCategories: [GenerateAttractionPlacesCategoryResponse!]!
+  searchCustomAttractionPlace(query: String!): [SearchCustomAttractionPlaceResponse!]!
+  attractionPlacebyPlaceID(placeId: String!): AttractionPlace!
+  hotelIDByDomain(domain: String!): String!
+  hotel: Hotel!
+  customDomain: GetCustomDomainResponse
+  hotels(groupId: String!): [Hotel!]!
+  userLoginToken(redirectURL: String, hotelId: String, hideSidebar: Boolean): GetUserLoginTokenResponse!
+  accessTokenValid: Boolean!
+  accessToken(authToken: String, refreshToken: String, hotelId: String): GetAccessTokenResponse!
+  googlePlacesHotelSearch(query: String!, sessionToken: String!): [GooglePlaceHotelSearchResponse!]!
+  googlePlacesHotelDetails(placeId: String!, sessionToken: String!): GooglePlaceHotelDetailsResponse!
+  userExists(where: WhereUserExistsInput!): Boolean!
+  users: [User!]!
+  user: User!
+  guests(sort: GuestsSortInput, limit: Float, offset: Float): [Guest!]!
+  guest(where: WhereInputType): GuestWithStatistics!
+  searchGuests(query: String, limit: Float, offset: Float, anonGuests: Boolean = true, startDate: DateTime, endDate: DateTime): SearchGuestsResponse!
+  marketplaceApps(live: Boolean, enabled: Boolean): [MarketplaceApp!]!
+  marketplaceApp(live: Boolean, enabled: Boolean, where: GetMarketplaceAppWhereInput!): MarketplaceApp
+  marketplaceAppSubscriptions: [HotelMarketplaceAppSubscription!]!
+  bookings(sort: BookingSortInput, limit: Float, offset: Float, guestId: String): [Booking!]!
+  findBooking(bookingReference: String, firstName: String!, lastName: String!, checkInDate: DateTime!, checkOutDate: DateTime!): Booking!
+  booking(where: WhereInputType!): Booking!
+  searchBookings(query: String, limit: Float, offset: Float, status: String, startCheckInDate: DateTime, startCheckOutDate: DateTime, endCheckInDate: DateTime, endCheckOutDate: DateTime, startDate: DateTime, endDate: DateTime): SearchBookingsResponse!
+  bookingAnalytics(startDate: DateTime, endDate: DateTime): BookingAnalyticsResponse!
+  apaleoProperties: [ApaleoPropertyResponse!]!
+  mewsServices: [MewsServiceResponse!]!
+  omnivoreLocations: [OmnivoreLocationsResponse!]!
+  omnivoreDiscounts(locationId: String!): [OmnivoreDiscountsResponse!]!
+  omnivoreOptions(locationId: String!): OmnivoreOptionsResponse!
+  omnivoreTables(locationId: String!): [OmnivoreOption!]!
+  messages(sort: OrdersSortInput, limit: Float, offset: Float, threadId: String!): [Message!]!
+  threads(sort: ThreadSortInput, limit: Float, offset: Float, guestId: String, resolved: Boolean): [Thread!]!
+  thread(where: WhereInputType!): Thread!
+  unreadThreadCount: Float!
+  orders(sort: OrdersSortInput, limit: Float, offset: Float, guestId: String, completed: Boolean, rejected: Boolean, startDate: DateTime, endDate: DateTime): [Order!]!
+  activeOrdersCount: Float!
+  searchOrders(query: String, limit: Float, offset: Float, startDate: DateTime, endDate: DateTime): SearchOrdersResponse!
+  order(where: WhereInputType!): Order!
+  searchOutstandingOrders(query: String, limit: Float, offset: Float, guestId: String, paymentType: PaymentType): SearchOutstandingOrdersResponse!
+  outstandingGuests(guestId: String, completed: Boolean, rejected: Boolean, startDate: DateTime, endDate: DateTime, sort: OrdersSortInput, limit: Float, offset: Float, paymentType: PaymentType): OutstandingGuestsResponse!
+  outstandingOrdersStatistics: OutstandingOrdersStatisticsResponse!
+  pricelists: [Pricelist!]!
+  pricelist(where: WhereInputType!): Pricelist!
+  pricelistFeedback(where: WhereInputType!): PricelistFeedback!
+  spaces: [Space!]!
+  space(where: WhereInputType!): Space!
+  guestPaymentMethods: [GuestPaymentMethodsResponse!]!
+  hmPayAccount: [HMPayAccountResponse!]!
+  hmPayPayouts: [PayoutValueResponse!]!
+  stripeAccount: StripeAccountResponse!
+  stripePayouts: [PayoutValueResponse!]
+  products: [Product!]!
+  searchProducts(query: String, limit: Float, offset: Float, outOfStockItems: Boolean = true): SearchProductsResponse!
+  product(where: WhereInputType!): Product!
+  customers: [Customer!]!
+  searchCustomers(query: String, limit: Float, offset: Float, outOfStockItems: Boolean = true): SearchCustomersResponse!
+  customer(where: WhereInputType!): Customer!
+  sales(sort: SalesSortInput, limit: Float, offset: Float, guestId: String, completed: Boolean, rejected: Boolean, startDate: DateTime, endDate: DateTime): [Sale!]!
+  searchSales(query: String, limit: Float, offset: Float, startDate: DateTime, endDate: DateTime): SearchSalesResponse!
+  sale(where: WhereInputType!): Sale!
+}
+
+input WhereUserExistsInput {
+  email: String!
+}
+
+input GuestsSortInput {
+  id: PaginationSort
+  dateCreated: PaginationSort
+}
+
+enum PaginationSort {
+  Asc
+  Desc
+}
+
+input WhereInputType {
+  id: String!
+}
+
+input GetMarketplaceAppWhereInput {
+  id: String
+  developer: String
+}
+
+input BookingSortInput {
+  id: PaginationSort
+  dateCreated: PaginationSort
+}
+
+input OrdersSortInput {
+  id: PaginationSort
+  dateCreated: PaginationSort
+}
+
+input ThreadSortInput {
+  id: PaginationSort
+  dateCreated: PaginationSort
+  dateUpdated: PaginationSort
+}
+
+input SalesSortInput {
+  id: PaginationSort
+  dateCreated: PaginationSort
+}
+
+type Mutation {
+  createAttraction(catalog: AttractionCatalogInput, enabled: Boolean, description: String): Attraction!
+  updateAttraction(data: UpdateAttractionInput!): Attraction!
+  deleteAttraction: Boolean!
+  generateAttractionPlaces(categories: [GenerateAttractionPlacesCategoryArgs!]!, requestBooking: Boolean!, radius: Float!): Boolean!
+  updateHotel(data: UpdateHotelInput!): Hotel!
+  addCustomDomain(domain: String!): Boolean!
+  deleteCustomDomain: Boolean!
+  addCustomLink(id: String!, enabled: Boolean!, name: String!, link: String!, photo: String): HotelCustomLink!
+  updateCustomLink(where: CustomLinkWhereInput!, data: UpdateCustomLinkInput!): HotelCustomLink!
+  deleteCustomLink(where: WhereInputType!): Boolean!
+  uploadAppAsset(file: Upload!): Boolean!
+  sendUserToken(email: String!, verificationTokenOnly: Boolean): Boolean!
+  userLogin: User!
+  userTokenLogin(email: String!, password: String!): User!
+  userLogout: Boolean!
+  anonGuestLogin(deviceId: String!): Guest!
+  sendGuestToken(email: String!, deviceId: String!): Boolean!
+  guestLogin(deviceId: String!, email: String!, verificationToken: String!): Guest!
+  guestLogout: Boolean!
+  guestTokenLogin: Guest!
+  connectMarketplaceApp(id: String!, redirectURL: String!): ConnectMarketplaceAppResponse!
+  disconnectMarketplaceApp(id: String): Boolean!
+  deleteGuest: Boolean!
+  registerGuest(email: String!, firstName: String!, lastName: String!, countryCode: String, mobile: String): RegisterGuestResponse!
+  registerGroupAdmin(user: RegisterGroupAdminUserInput!, hotel: RegisterGroupAdminHotelInput!, group: RegisterGroupAdminGroupInput, termsAndConditions: Boolean!): RegisterGroupAdminResponse!
+  inviteHotelUser(email: String!, hotels: [InviteUserHotelInput!], groupAdmin: Boolean): Boolean!
+  registerHotelUser(id: String!, firstName: String!, lastName: String!, mobile: String!, termsAndConditions: Boolean!): RegisterHotelUserResponse!
+  deleteUser(where: WhereInputType!): Boolean!
+  updateUser(where: UserWhereInput, data: UpdateUserInput!): User!
+  subscribeUserPushNotifications(deviceId: String!, pushSubscription: WebPushSubscriptionInput!, sound: Boolean): User!
+  unsubscribeUserPushNotifications(deviceId: String!): User!
+  updateGuest(where: GuestWhereInput, data: UpdateGuestInput!): Guest!
+  subscribeGuestPushNotifications(pushNotificationToken: String!): Guest!
+  createMarketplaceApp(name: String!, description: String!, type: IntegrationType!, logo: String!, websiteURL: String!, documentationURL: String!, helpURL: String!, redirectURLs: [String!]!, connectLink: String!, live: Boolean!, enabled: Boolean!): MarketplaceApp!
+  updateMarketplaceApp(where: MarketplaceAppWhereInput!, data: UpdateMarketplaceAppInput!): MarketplaceApp!
+  deleteMarketplaceApp(where: WhereInputType!): Boolean!
+  createMarketplaceAppSubscription(endpoint: String!, topics: [HotelMarketplaceAppSubscriptionTopic!]!): HotelMarketplaceAppSubscription!
+  updateMarketplaceAppSubscription(where: MarketplaceAppSubscriptionWhereInput!, data: UpdateMarketplaceAppSubscriptionInput!): HotelMarketplaceAppSubscription!
+  deleteMarketplaceAppSubscription(where: WhereInputType!): Boolean!
+  deleteMarketplaceAppSubscriptions: Boolean!
+  generateMarketplaceAppKey: String!
+  createBooking(roomNumber: String, bookingReference: String, checkInDate: DateTime, checkOutDate: DateTime, carRegistration: String, party: [BookingPartyInput!], bookingDetails: BookingDetailsInput, roomType: String, estimatedTimeOfArrival: String, numberOfAdults: Float, numberOfChildren: Float, clubMemberNumber: String, dateReviewed: DateTime, dateSubmitted: DateTime, dateCheckedIn: DateTime, guestId: String): Booking
+  updateBooking(data: UpdateBookingInput!, where: BookingWhereInput!): Booking!
+  authorizeApaleo(code: String!): Boolean!
+  authorizeMews(accessToken: String!, clientToken: String!): Boolean!
+  authorizeOmnivore(apiKey: String!): Boolean!
+  disconnectOmnivore: Boolean!
+  disconnectApaleo: Boolean!
+  disconnectMews: Boolean!
+  updateThread(where: ThreadWhereInput!, data: UpdateThreadInput!): Thread!
+  resolveThread(where: WhereInputType!): Thread!
+  createOrder(dateApproved: DateTime, dateReady: DateTime, dateCompleted: DateTime, dateScheduled: DateTime, items: [OrderItemInput!]!, totalPrice: Float!, roomNumber: String!, notes: String, cardDetails: CardDetailsInput, paymentProvider: PayoutsStrategy, paymentType: PaymentType!, orderReference: String, paymentIntentId: String, subtotal: Float!, discount: PriceMultiplierInput, surcharges: [PriceMultiplierInput!], delivery: PricelistDeliveryType, collection: PricelistCollectionType, pricelistId: String!, guestId: String): CreateOrderResponse!
+  updateOrder(where: OrderWhereInput!, data: UpdateOrderInput!): Order!
+  settleOrders(orderId: String, guestId: String, paymentType: PaymentType): Boolean!
+  createPricelist(name: String!, description: String, availability: AvailabilityInput!, commerce: Boolean, collection: [PricelistCollectionInput!], delivery: [PricelistDeliveryInput!], catalog: PricelistCatalogInput, posSettings: PricelistPOSSettingsInput, promotions: PricelistPromotionsInput, surcharges: [PricelistSurchargeInput!], enabledPayments: PricelistEnabledPaymentsInput, autoApprove: Boolean, feedback: Boolean, spaceId: String!): Pricelist!
+  updatePricelist(where: PricelistWhereInput!, data: UpdatePricelistInput!): Pricelist!
+  deletePricelist(where: WhereInputType!): Boolean!
+  deletePricelists(where: [WhereInputType!]!): Boolean!
+  resyncPOS: Boolean!
+  createSpace(name: String!, location: String!, availability: AvailabilityInput!, enabled: Boolean): Space!
+  updateSpace(where: SpaceWhereInput!, data: UpdateSpaceInput!): Space!
+  deleteSpace(where: WhereInputType!): Boolean!
+  deleteSpaces(where: [WhereInputType!]!): Boolean!
+  createGuestPaymentMethod(name: String!, token: String!): Boolean!
+  deleteGuestPaymentMethod(paymentMethodId: String!): Boolean!
+  createHMPayAccount(accountNumber: String!, sortCode: String!): HMPayAccountResponse!
+  updateHMPayExternalAccount(accountNumber: String!, sortCode: String!, payoutSchedule: HMPayAccountPayoutScheduleInput!): HMPayAccountResponse!
+  createStripeAccount: CreateStripeAccountResponse!
+  linkStripeAccount(authCode: String!): Boolean!
+  updateStripeExternalAccount(accountNumber: String!, sortCode: String!, payoutSchedule: StripeExternalAccountPayoutScheduleInput!): Boolean!
+  enableHotelPayouts(payoutsStrategy: PayoutsStrategy!): HotelPayouts!
+  disableHotelPayouts: HotelPayouts!
+  createProduct(name: String!, code: String!, stock: Float!, sellPrice: Float!, costPrice: Float!): Product!
+  updateProduct(where: ProductWhereInput!, data: UpdateProductInput!): Product!
+  deleteProduct(where: WhereInputType!): Boolean!
+  deleteProducts(where: [WhereInputType!]!): Boolean!
+  createCustomer(firstName: String!, lastName: String!, nic: String!, phone: String!, address: String!): Customer!
+  updateCustomer(where: CustomerWhereInput!, data: UpdateCustomerInput!): Customer!
+  deleteCustomer(where: WhereInputType!): Boolean!
+  createSale(items: [SaleItemInput!]!, totalPrice: Float!, salesReference: String, subtotal: Float!, instalmentPlan: SaleInstalmentPlanInput!, customerNIC: String!): CreateSaleResponse!
+  updateSale(where: SaleWhereInput!, data: UpdateSaleInput!): Sale!
+}
+
+input UpdateAttractionInput {
+  catalog: AttractionCatalogInput
+  enabled: Boolean
+  description: String
+}
+
+input GenerateAttractionPlacesCategoryArgs {
+  name: String!
+}
+
+input UpdateHotelInput {
+  name: String
+  telephone: String
+  address: HotelAddressInput
+  website: String
+  currencyCode: String
+  countryCode: String
+  app: HotelAppInput
+  payouts: HotelPayoutsInput
+  messagesSettings: MessagesSettingsInput
+  bookingsSettings: BookingsSettingsInput
+  pmsSettings: HotelPMSSettingsInput
+}
+
+input CustomLinkWhereInput {
+  id: String!
+}
+
+input UpdateCustomLinkInput {
+  enabled: Boolean!
+  name: String!
+  link: String!
+  photo: String
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+enum RegisterGuestResponse {
+  Success
+  Conflict
+}
+
+input RegisterGroupAdminUserInput {
+  email: String!
+  firstName: String
+  lastName: String
+  mobile: String
+  jobTitle: String
+}
+
+input RegisterGroupAdminHotelInput {
+  name: String!
+  telephone: String!
+  address: HotelAddressInput!
+  website: String!
+  countryCode: String!
+}
+
+input RegisterGroupAdminGroupInput {
+  name: String
+}
+
+input InviteUserHotelInput {
+  id: String!
+  role: String!
+}
+
+enum RegisterHotelUserResponse {
+  Success
+  Conflict
+}
+
+input UserWhereInput {
+  id: String!
+}
+
+input UpdateUserInput {
+  firstName: String
+  lastName: String
+  mobile: String
+  jobTitle: String
+  notifications: UserNotificationsInput
+  hotels: [InviteUserHotelInput!]
+  groupAdmin: Boolean
+}
+
+input GuestWhereInput {
+  id: String!
+}
+
+input UpdateGuestInput {
+  firstName: String
+  lastName: String
+  mobile: String
+  mobileCountryCode: String
+}
+
+input MarketplaceAppWhereInput {
+  id: String!
+}
+
+input UpdateMarketplaceAppInput {
+  name: String
+  description: String
+  type: IntegrationType
+  logo: String
+  websiteURL: String
+  documentationURL: String
+  helpURL: String
+  redirectURLs: [String!]
+  connectLink: String
+  live: Boolean
+  enabled: Boolean
+}
+
+input MarketplaceAppSubscriptionWhereInput {
+  id: String!
+}
+
+input UpdateMarketplaceAppSubscriptionInput {
+  endpoint: String
+  topics: [HotelMarketplaceAppSubscriptionTopic!]
+}
+
+input UpdateBookingInput {
+  roomNumber: String
+  bookingReference: String
+  checkInDate: DateTime
+  checkOutDate: DateTime
+  carRegistration: String
+  party: [BookingPartyInput!]
+  bookingDetails: BookingDetailsInput
+  roomType: String
+  estimatedTimeOfArrival: String
+  numberOfAdults: Float
+  numberOfChildren: Float
+  clubMemberNumber: String
+  purposeOfStay: String
+  pmsId: String
+  status: BookingStatus
+}
+
+input BookingWhereInput {
+  id: String!
+}
+
+input ThreadWhereInput {
+  id: String!
+}
+
+input UpdateThreadInput {
+  resolved: Boolean
+}
+
+input OrderWhereInput {
+  id: String!
+}
+
+input UpdateOrderInput {
+  reasonRejected: String
+  feedback: OrderFeedbackInput
+  status: OrderStatus
+}
+
+input PricelistWhereInput {
+  id: String!
+}
+
+input UpdatePricelistInput {
+  name: String
+  description: String
+  availability: AvailabilityInput
+  commerce: Boolean
+  collection: [PricelistCollectionInput!]
+  delivery: [PricelistDeliveryInput!]
+  catalog: PricelistCatalogInput
+  posSettings: PricelistPOSSettingsInput
+  promotions: PricelistPromotionsInput
+  surcharges: [PricelistSurchargeInput!]
+  enabledPayments: PricelistEnabledPaymentsInput
+  autoApprove: Boolean
+  feedback: Boolean
+  spaceId: String
+}
+
+input SpaceWhereInput {
+  id: String!
+}
+
+input UpdateSpaceInput {
+  name: String
+  location: String
+  availability: AvailabilityInput
+  enabled: Boolean
+}
+
+input StripeExternalAccountPayoutScheduleInput {
+  interval: PayoutInterval!
+  weeklyInterval: StripeWeeklyPayoutInterval
+  monthlyInterval: Float
+}
+
+enum StripeWeeklyPayoutInterval {
+  Monday
+  Tuesday
+  Wednesday
+  Thursday
+  Friday
+  Saturday
+  Sunday
+}
+
+input ProductWhereInput {
+  id: String!
+}
+
+input UpdateProductInput {
+  name: String
+  code: String
+  stock: Float
+  sellPrice: Float
+  costPrice: Float
+}
+
+input CustomerWhereInput {
+  id: String!
+}
+
+input UpdateCustomerInput {
+  firstName: String
+  lastName: String
+  nic: String
+  phone: String
+  address: String
+}
+
+input SaleWhereInput {
+  id: String!
+}
+
+input UpdateSaleInput {
+  instalmentPlan: SaleInstalmentPlanInput
+}

@@ -1,0 +1,19 @@
+mutation createCustomer($firstName: String!, $lastName: String!, $nic: String!, $phone: String!, $address: String!) {
+  createCustomer(
+    firstName: $firstName
+    lastName: $lastName
+    nic: $nic
+    phone: $phone
+    address: $address
+  ) {
+    firstName
+    lastName
+    nic
+    phone
+    address
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

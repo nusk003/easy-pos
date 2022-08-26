@@ -1,0 +1,193 @@
+{
+  "name": "@ep/dashboard",
+  "version": "1.33.0-alpha.0",
+  "main": "./public/electron.js",
+  "private": true,
+  "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "build": "craco build",
+    "cypress": "cypress open",
+    "dev": "node dev/start.js",
+    "electron:build": "PUBLIC_URL=./ craco build",
+    "electron:dev": "electronmon .",
+    "electron:package:mac": "electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "electron:package:win": "electron-builder -w -c.extraMetadata.main=build/electron.js",
+    "electron:package:linux": "electron-builder -l -c.extraMetadata.main=build/electron.js -p always",
+    "eject": "react-scripts eject",
+    "start": "craco start",
+    "start:https": "HTTPS=true SSL_CRT_FILE=../../../.cert/cert.pem SSL_KEY_FILE=../../../.cert/key.pem craco start",
+    "storybook": "start-storybook",
+    "test": "CI=true craco test --env=jsdom",
+    "test:watch": "craco test --env=jsdom",
+    "test:e2e": "wait-on http://localhost:3000 http://localhost:5000 && cypress run"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect",
+      "jest-styled-components"
+    ]
+  },
+  "electronVersion": "18.2.3",
+  "author": "Hotel Manager",
+  "description": "Dashboard from Hotel Manager",
+  "build": {
+    "appId": "com.hotelmanager.app",
+    "productName": "Hotel Manager",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "public"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Network",
+      "publish": {
+        "provider": "s3",
+        "bucket": "cloud-console-app",
+        "region": "eu-west-1"
+      }
+    },
+    "extraMetadata": {
+      "name": "Hotel Manager"
+    }
+  },
+  "browserslist": {
+    "production": [
+      "last 1 electron version",
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 electron version",
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "resolutions": {
+    "@types/react": "^16.9.35"
+  },
+  "dependencies": {
+    "@babel/helper-call-delegate": "^7.10.1",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-decorators": "^7.13.5",
+    "@craco/craco": "^6.1.1",
+    "@hm/dates": "^1.33.0-alpha.0",
+    "@hm/eslint-config": "^1.33.0-alpha.0",
+    "@hm/messages": "^1.33.0-alpha.0",
+    "@hm/prettier-config": "^1.33.0-alpha.0",
+    "@hm/sdk": "^1.33.0-alpha.0",
+    "@hm/spaces": "^1.33.0-alpha.0",
+    "@sentry/react": "^5.20.1",
+    "@testing-library/jest-dom": "^5.11.3",
+    "@testing-library/react": "^10.4.9",
+    "@types/he": "^1.1.1",
+    "@types/howler": "^2.1.2",
+    "@types/jest": "^25.1.1",
+    "@types/lodash": "^4.14.150",
+    "@types/markdown-it": "^10.0.3",
+    "@types/node": "^13.7.0",
+    "@types/qrcode": "^1.4.0",
+    "@types/react-beautiful-dnd": "^12.1.2",
+    "@types/react-datepicker": "^2.11.0",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-helmet": "^6.0.0",
+    "@types/react-input-mask": "^2.0.5",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/react-text-mask": "^5.4.6",
+    "@types/sanitize-html": "^1.27.0",
+    "@types/styled-components": "^5.1.0",
+    "@types/styled-system": "^5.1.9",
+    "@types/testing-library__jest-dom": "^5.9.2",
+    "@types/turndown": "^5.0.0",
+    "@types/ua-parser-js": "^0.7.33",
+    "@types/uuid": "^7.0.3",
+    "@types/yup": "^0.28.3",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "axios": "^0.19.0",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-root-import": "^6.4.1",
+    "babel-plugin-styled-components": "^1.10.7",
+    "babel-plugin-transform-typescript-metadata": "^0.3.2",
+    "build-url": "^6.0.1",
+    "compressorjs": "^1.0.7",
+    "country-code-info": "^0.3.0",
+    "craco-alias": "^2.2.0",
+    "create-react-app": "^3.4.1",
+    "cypress": "^4.12.1",
+    "electron-log": "^4.4.8",
+    "electron-updater": "^5.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-cypress": "^2.11.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "file-saver": "^2.0.2",
+    "fuse.js": "^6.4.0",
+    "global": "^4.4.0",
+    "graphql": "^15.8.0",
+    "graphql-request": "^4.0.0",
+    "hacktimer": "^1.1.3",
+    "handlebars": "^4.7.7",
+    "history": "^4.9.0",
+    "html-react-parser": "^0.14.1",
+    "ip": "^1.1.5",
+    "jest-dom": "^4.0.0",
+    "jest-styled-components": "^7.0.3",
+    "lodash": "^4.17.15",
+    "markdown-it": "^12.0.2",
+    "moment": "^2.24.0",
+    "node-sass": "^6.0.1",
+    "polished": "^3.4.2",
+    "prettier": "^2.0.5",
+    "prop-types": "^15.7.2",
+    "qrcode": "^1.4.4",
+    "query-string": "^6.9.0",
+    "react": "16.13.1",
+    "react-beautiful-dnd": "^11.0.5",
+    "react-datepicker": "^2.11.0",
+    "react-dom": "16.13.1",
+    "react-helmet": "^6.0.0",
+    "react-hook-form": "^5.7.2",
+    "react-icons": "^4.3.1",
+    "react-input-mask": "^3.0.0-alpha.2",
+    "react-notion": "^0.10.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-spinners": "^0.8.0",
+    "react-toastify": "^5.5.0",
+    "react-virtuoso": "^1.8.3",
+    "sanitize-html": "^2.1.2",
+    "source-map-explorer": "^2.5.0",
+    "styled-components": "^5.0.1",
+    "styled-system": "^5.1.5",
+    "swr": "^0.5.6",
+    "turndown": "^7.0.0",
+    "typescript": "^4.1.6",
+    "ua-parser-js": "^0.7.22",
+    "uuid": "^3.4.0",
+    "wait-on": "^5.2.0",
+    "zod": "^3.11.6",
+    "zustand": "^3.1.0",
+    "zustand-persist": "^0.2.4"
+  },
+  "devDependencies": {
+    "electron": "18.2.3",
+    "electron-builder": "^23.0.3",
+    "electronmon": "^2.0.2"
+  }
+}

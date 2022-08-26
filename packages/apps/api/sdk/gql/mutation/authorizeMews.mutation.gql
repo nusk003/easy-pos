@@ -1,0 +1,4 @@
+mutation authorizeMews($accessToken: String!, $clientToken: String!) {
+  authorizeMews(accessToken: $accessToken, clientToken: $clientToken)
+}
+    

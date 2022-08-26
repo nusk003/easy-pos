@@ -1,0 +1,4 @@
+mutation disconnectMarketplaceApp($id: String) {
+  disconnectMarketplaceApp(id: $id)
+}
+    

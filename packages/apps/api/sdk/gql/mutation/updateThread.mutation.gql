@@ -1,0 +1,43 @@
+mutation updateThread($where: ThreadWhereInput!, $data: UpdateThreadInput!) {
+  updateThread(where: $where, data: $data) {
+    resolved
+    guest {
+      mobileCountryCode
+      mobile
+      lastName
+      firstName
+      email
+      id
+    }
+    order {
+      pricelist {
+        id
+        name
+      }
+      space {
+        id
+        name
+      }
+      discount {
+        value
+        name
+      }
+      subtotal
+      orderReference
+      totalPrice
+      dateCreated
+      id
+      id
+    }
+    lastMessage {
+      author
+      text
+      dateCreated
+      id
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

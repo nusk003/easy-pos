@@ -1,0 +1,4 @@
+mutation disconnectApaleo {
+  disconnectApaleo
+}
+    

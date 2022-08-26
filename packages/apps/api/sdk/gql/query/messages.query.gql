@@ -1,0 +1,22 @@
+query messages($sort: OrdersSortInput, $limit: Float, $offset: Float, $threadId: String!) {
+  messages(sort: $sort, limit: $limit, offset: $offset, threadId: $threadId) {
+    text
+    author
+    thread {
+      guest {
+        firstName
+        email
+        id
+        lastName
+      }
+      resolved
+      dateUpdated
+      dateCreated
+      id
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

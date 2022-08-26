@@ -1,0 +1,136 @@
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0;
+      font-weight: 400;
+      background-color: #fff;
+      color: #000000;
+    }
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 21px;
+    }
+
+    strong {
+      font-weight: 500;
+    }
+
+    a {
+      text-decoration: underline;
+      color: inherit !important;
+      font-weight: 500;
+    }
+
+    .wrapper {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+        Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    }
+
+    .button {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+        Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+      display: block;
+      margin: 0 20px;
+      padding: 12px 0;
+      background: #000000;
+      border-radius: 12px;
+      color: #fff !important;
+      cursor: pointer;
+      border-style: unset;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .bg-blue {
+      background-color: #1a73e8;
+    }
+
+    @media screen and (min-width: 768px) {
+      body {
+        background-color: #f4f4f4;
+      }
+
+      .wrapper {
+        width: 768px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div style='background-color: #fff' class='wrapper'>
+    <div style='
+          padding: 0 20px;
+          padding-top: 24px;
+          font-weight: 600;
+          font-size: 25px;
+        '>
+      Your reservation at
+      {{hotelName}}
+    </div>
+
+    <div style='padding: 0 20px; padding-top: 20px'>
+      <p>
+        Welcome
+        <br />
+        {{firstName}}
+        {{lastName}},
+        <br />
+        <br />
+      </p>
+      <p style="font-size: 14px">
+        Online check-in is now available for your reservation.
+      </p>
+    </div>
+
+    <div style='background-color: #f9f9f9; padding: 20px; margin: 20px 0'>
+      <p style='font-weight: 700'>Details</p>
+        {{#if bookingReference}}
+        <div style='padding-top: 20px'>
+          <p style='font-weight: 700; color: rgba(0, 0, 0, 0.5)'>Booking
+            Reference</p>
+          <p>{{bookingReference}}</p>
+        </div>
+        {{/if}}
+      <div style='padding-top: 20px'>
+        <p style='font-weight: 700; color: rgba(0, 0, 0, 0.5)'>Guest</p>
+        <p>{{firstName}} {{lastName}}</p>
+      </div>
+      <div style='padding-top: 20px'>
+        <p style='font-weight: 700; color: rgba(0, 0, 0, 0.5)'>Date</p>
+        <p>{{checkInDate}} — {{checkOutDate}}</p>
+      </div>
+    </div>
+
+    <div style='padding: 0 20px;'>
+      <p>We look forward to welcoming you!</p>
+    </div>
+
+    <div style='padding: 20px 0;'>
+      <a class='button' href='{{checkInLink}}'> Check in now </a>
+    </div>
+
+    <div style='padding: 0 20px'>
+      <p style='
+            font-size: 14px; 
+            font-weight: 400;
+            color: gray;
+          '>
+        If there are any issues at all, please reach out to
+        <strong>hello@hotelmanager.co.</strong>
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

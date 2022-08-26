@@ -1,0 +1,12 @@
+{
+  "version": "1.33.0-alpha.0",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "version": {
+      "conventionalCommits": true,
+      "yes": true,
+      "message": "chore(release): publish %s [skip ci]"
+    }
+  }
+}

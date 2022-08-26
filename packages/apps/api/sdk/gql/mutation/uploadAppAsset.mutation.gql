@@ -1,0 +1,4 @@
+mutation uploadAppAsset($file: Upload!) {
+  uploadAppAsset(file: $file)
+}
+    

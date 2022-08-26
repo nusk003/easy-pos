@@ -1,0 +1,18 @@
+query omnivoreDiscounts($locationId: String!) {
+  omnivoreDiscounts(locationId: $locationId) {
+    id
+    value
+    name
+    available
+    order
+    item
+    open
+    maxAmount
+    minAmount
+    maxPercent
+    minPercent
+    minOrderAmount
+    type
+    posId
+  }
+}

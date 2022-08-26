@@ -1,0 +1,47 @@
+{
+  "name": "easy-pos",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/apps/**",
+      "packages/libs/**",
+      "packages/tools/**"
+    ],
+    "nohoist": [
+      "**/elasticsearch-memory-server",
+      "**/elasticsearch-memory-server/**",
+      "**/mongodb-memory-server",
+      "**/mongodb-memory-server/**"
+    ]
+  },
+  "scripts": {
+    "build:lib": "scripts/build.sh",
+    "postinstall": "patch-package",
+    "reinstall": "scripts/reinstall.sh",
+    "api": "yarn workspace @ep/api",
+    "dashboard": "yarn workspace @ep/dashboard",
+    "test": ":",
+    "gen_certs": "mkdir -p .cert && mkcert -key-file ./.cert/key.pem -cert-file ./.cert/cert.pem localhost 127.0.0.1"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@commitlint/config-lerna-scopes": "^9.1.2",
+    "husky": "^4.2.5",
+    "patch-package": "^6.2.2",
+    "postinstall-postinstall": "^2.1.0"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-merge": "yarn install && yarn build:lib"
+    }
+  },
+  "resolutions": {
+    "**/@typescript-eslint/eslint-plugin": "^4.1.1",
+    "**/@typescript-eslint/parser": "^4.1.1"
+  }
+}

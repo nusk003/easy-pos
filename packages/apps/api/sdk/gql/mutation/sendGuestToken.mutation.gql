@@ -1,0 +1,4 @@
+mutation sendGuestToken($email: String!, $deviceId: String!) {
+  sendGuestToken(email: $email, deviceId: $deviceId)
+}
+    

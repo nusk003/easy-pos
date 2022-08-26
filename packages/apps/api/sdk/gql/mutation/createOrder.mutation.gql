@@ -1,0 +1,133 @@
+mutation createOrder($dateApproved: DateTime, $dateReady: DateTime, $dateCompleted: DateTime, $dateScheduled: DateTime, $items: [OrderItemInput!]!, $totalPrice: Float!, $roomNumber: String!, $notes: String, $cardDetails: CardDetailsInput, $paymentProvider: PayoutsStrategy, $paymentType: PaymentType!, $orderReference: String, $paymentIntentId: String, $subtotal: Float!, $discount: PriceMultiplierInput, $surcharges: [PriceMultiplierInput!], $delivery: PricelistDeliveryType, $collection: PricelistCollectionType, $pricelistId: String!, $guestId: String) {
+  createOrder(
+    dateApproved: $dateApproved
+    dateReady: $dateReady
+    dateCompleted: $dateCompleted
+    dateScheduled: $dateScheduled
+    items: $items
+    totalPrice: $totalPrice
+    roomNumber: $roomNumber
+    notes: $notes
+    cardDetails: $cardDetails
+    paymentProvider: $paymentProvider
+    paymentType: $paymentType
+    orderReference: $orderReference
+    paymentIntentId: $paymentIntentId
+    subtotal: $subtotal
+    discount: $discount
+    surcharges: $surcharges
+    delivery: $delivery
+    collection: $collection
+    pricelistId: $pricelistId
+    guestId: $guestId
+  ) {
+    order {
+      dateApproved
+      dateReady
+      dateCompleted
+      dateScheduled
+      items {
+        id
+        name
+        posId
+        modifiers {
+          id
+          name
+          posId
+          options {
+            id
+            name
+            posId
+            price
+          }
+        }
+        discount {
+          id
+          posId
+          value
+          type
+          name
+        }
+        quantity
+        posSettings {
+          posId
+          name
+        }
+        totalPrice
+        omnivoreSettings {
+          tableService {
+            posId
+            name
+            price
+          }
+          roomService {
+            posId
+            name
+            price
+          }
+        }
+      }
+      totalPrice
+      roomNumber
+      notes
+      cardDetails {
+        id
+        country
+        brand
+        last4
+      }
+      paymentProvider
+      paymentType
+      orderReference
+      posId
+      subtotal
+      discount {
+        id
+        posId
+        value
+        type
+        name
+      }
+      surcharges {
+        id
+        posId
+        value
+        type
+        name
+      }
+      reasonRejected
+      rejected
+      delivery
+      collection
+      paid
+      feedback {
+        rating
+      }
+      guest {
+        lastName
+        firstName
+        id
+      }
+      space {
+        name
+        id
+      }
+      pricelist {
+        name
+        id
+      }
+      thread {
+        id
+      }
+      status
+      id
+      dateCreated
+      deleted
+      dateUpdated
+    }
+    paymentIntent {
+      status
+      clientSecret
+    }
+  }
+}

@@ -1,0 +1,7 @@
+mutation createMarketplaceAppSubscription($endpoint: String!, $topics: [HotelMarketplaceAppSubscriptionTopic!]!) {
+  createMarketplaceAppSubscription(endpoint: $endpoint, topics: $topics) {
+    id
+    endpoint
+    topics
+  }
+}

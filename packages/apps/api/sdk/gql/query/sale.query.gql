@@ -1,0 +1,38 @@
+query sale($where: WhereInputType!) {
+  sale(where: $where) {
+    items {
+      id
+      productId
+      title
+      quantity
+      totalSell
+      totalCost
+    }
+    totalPrice
+    salesReference
+    subtotal
+    customer {
+      address
+      phone
+      nic
+      lastName
+      firstName
+      id
+    }
+    instalmentPlan {
+      noTerms
+      initialPayment
+      terms {
+        id
+        dueDate
+        dueAmount
+        paidAmount
+        completed
+      }
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

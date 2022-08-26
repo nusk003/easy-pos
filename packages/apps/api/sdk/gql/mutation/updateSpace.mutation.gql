@@ -1,0 +1,41 @@
+mutation updateSpace($where: SpaceWhereInput!, $data: UpdateSpaceInput!) {
+  updateSpace(where: $where, data: $data) {
+    name
+    location
+    availability {
+      m {
+        start
+        end
+      }
+      t {
+        start
+        end
+      }
+      w {
+        start
+        end
+      }
+      th {
+        start
+        end
+      }
+      f {
+        start
+        end
+      }
+      sa {
+        start
+        end
+      }
+      s {
+        start
+        end
+      }
+    }
+    enabled
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

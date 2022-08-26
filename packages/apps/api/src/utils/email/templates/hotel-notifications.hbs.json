@@ -1,0 +1,38 @@
+{
+  "notifications": [
+    {
+      "time": "8:03 am",
+      "title": "NEW MESSAGE",
+      "guest": {
+        "initials": "AW",
+        "firstName": "Alex",
+        "lastName": "Wanderwall"
+      },
+      "body": "Sorry to bother you but I have a really important question to ask. Who should I direct my question..."
+    },
+    {
+      "time": "8:03 am",
+      "title": "NEW ORDER",
+      "guest": {
+        "initials": "AW",
+        "firstName": "Alex",
+        "lastName": "Wanderwall",
+        "location": "Room 308"
+      },
+      "body": "4 items • £32.00"
+    },
+    {
+      "time": "8:03 am",
+      "title": "NEW BOOKING",
+      "guest": {
+        "initials": "AW",
+        "firstName": "Alex",
+        "lastName": "Wanderwall"
+      },
+      "body": "23/09/2021 - 26/09/2021 • Ready to review"
+    }
+  ],
+  "notificationsLength": 3,
+  "notificationCenterLink": "",
+  "notificationCenterUnsubscribeLink": ""
+}

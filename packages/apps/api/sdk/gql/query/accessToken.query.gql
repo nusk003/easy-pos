@@ -1,0 +1,12 @@
+query accessToken($authToken: String, $refreshToken: String, $hotelId: String) {
+  accessToken(
+    authToken: $authToken
+    refreshToken: $refreshToken
+    hotelId: $hotelId
+  ) {
+    accessToken
+    refreshToken
+    ttl
+    grantLevel
+  }
+}

@@ -1,0 +1,4 @@
+mutation settleOrders($orderId: String, $guestId: String, $paymentType: PaymentType) {
+  settleOrders(orderId: $orderId, guestId: $guestId, paymentType: $paymentType)
+}
+    

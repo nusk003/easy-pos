@@ -1,0 +1,16 @@
+query outstandingOrdersStatistics {
+  outstandingOrdersStatistics {
+    cash {
+      paymentType
+      noOrders
+      totalPrice
+      noGuests
+    }
+    roomBill {
+      paymentType
+      noOrders
+      totalPrice
+      noGuests
+    }
+  }
+}

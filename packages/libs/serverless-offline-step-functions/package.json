@@ -1,0 +1,27 @@
+{
+  "name": "@hm/serverless-offline-step-functions",
+  "version": "1.33.0-alpha.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@hm/eslint-config": "^1.33.0-alpha.0",
+    "@hm/prettier-config": "^1.33.0-alpha.0",
+    "@types/node": "^14.14.20",
+    "eslint": "7.7.0",
+    "nodemon": "^2.0.4",
+    "prettier": "2.0.5",
+    "ts-node": "^8.10.2"
+  },
+  "scripts": {
+    "clean": "rm -rf lib/*",
+    "build": "yarn run clean && tsc --p tsconfig.json",
+    "play": "nodemon -e ts -w . -x ts-node src/playground.ts"
+  },
+  "dependencies": {
+    "@types/serverless": "^1.78.19",
+    "aws-sdk": "^2.826.0",
+    "serverless": "^2.18.0",
+    "stepfunctions-local": "https://github.com/pianomansam/stepfunctions-local#strip-lambda-arn"
+  }
+}

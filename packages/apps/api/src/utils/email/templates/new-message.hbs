@@ -1,0 +1,114 @@
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0;
+      font-weight: 400;
+      background-color: #fff;
+      color: #000000;
+    }
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 21px;
+    }
+
+    strong {
+      font-weight: 500;
+    }
+
+    a {
+      text-decoration: underline;
+      color: inherit !important;
+      font-weight: 500;
+    }
+
+    .wrapper {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+        Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    }
+
+    .button {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+        Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+      display: block;
+      margin: 0 20px;
+      padding: 12px 0;
+      background: #000000;
+      border-radius: 12px;
+      color: #fff !important;
+      cursor: pointer;
+      border-style: unset;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .bg-blue {
+      background-color: #1a73e8;
+    }
+
+    @media screen and (min-width: 768px) {
+      body {
+        background-color: #f4f4f4;
+      }
+
+      .wrapper {
+        width: 768px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div style='background-color: #fff' class='wrapper'>
+    <div style='
+          padding: 0 20px;
+          padding-top: 24px;
+          font-weight: 600;
+          font-size: 25px;
+        '>
+      You have a new message from
+      {{authorName}}
+    </div>
+
+    <div style='
+          background-color: #f9f9f9;
+          padding: 20px;
+          margin: 20px 0;
+          font-weight: 500;
+        '>
+      <p style="font-size: 14px; color: gray">{{date}}</p>
+      <p>{{messageText}}</p>
+    </div>
+
+    <div>
+      <a {{#unless guestApp}}class="button bg-blue" {{/unless}} class="button" href='{{messageLink}}'>View and reply</a>
+    </div>
+
+    <div style='padding: 20px'>
+      <p style='
+            font-size: 14px; 
+            font-weight: 400;
+            color: gray;
+          '>
+        Please note that you cannot reply to this email. Please click the
+        button above to view the full message and reply directly
+        {{#if guestApp}}from our app{{else}}on your Dashboard{{/if}}.
+        <br />
+        <br />
+        If there are any issues at all, please reach out to
+        <strong>hello@hotelmanager.co.</strong>
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

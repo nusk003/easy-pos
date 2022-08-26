@@ -1,0 +1,32 @@
+query searchGuests($query: String, $limit: Float, $offset: Float, $anonGuests: Boolean, $startDate: DateTime, $endDate: DateTime) {
+  searchGuests(
+    query: $query
+    limit: $limit
+    offset: $offset
+    anonGuests: $anonGuests
+    startDate: $startDate
+    endDate: $endDate
+  ) {
+    data {
+      email
+      firstName
+      lastName
+      mobile
+      mobileCountryCode
+      dateOfBirth
+      countryOfResidence
+      address
+      nationality
+      passportNumber
+      dietaryRequirements
+      company
+      job
+      pmsId
+      id
+      dateCreated
+      deleted
+      dateUpdated
+    }
+    count
+  }
+}

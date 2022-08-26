@@ -1,0 +1,27 @@
+mutation registerGroupAdmin($user: RegisterGroupAdminUserInput!, $hotel: RegisterGroupAdminHotelInput!, $group: RegisterGroupAdminGroupInput, $termsAndConditions: Boolean!) {
+  registerGroupAdmin(
+    user: $user
+    hotel: $hotel
+    group: $group
+    termsAndConditions: $termsAndConditions
+  ) {
+    user {
+      hotelManager
+      groupAdmin
+      jobTitle
+      mobile
+      lastName
+      firstName
+      email
+      dateUpdated
+      dateCreated
+      id
+    }
+    hotel {
+      id
+    }
+    group {
+      id
+    }
+  }
+}

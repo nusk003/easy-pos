@@ -1,0 +1,34 @@
+{
+  "orderReference": "247AEE",
+  "dateCreated": "22/07/22 09:47:23",
+  "guest": {
+    "firstName": "Agni",
+    "lastName": "Ilango"
+  },
+  "deliveryType": "ASAP",
+  "location": "Room 406",
+  "payment": "Pay in person",
+  "pricelistName": "All day breakfast menu",
+  "spaceName": "The Quarterdeck Restaurant",
+  "items": [
+    {
+      "name": "Marinated giant green olives",
+      "options": [{ "name": "Small" }],
+      "quantity": 2,
+      "totalPrice": "£7.90"
+    },
+    {
+      "name": "Marinated giant green olives",
+      "options": [],
+      "quantity": 1,
+      "totalPrice": "£3.95"
+    },
+    {
+      "name": "Beer battered onion rings",
+      "options": [],
+      "quantity": 1,
+      "totalPrice": "£3.50"
+    }
+  ],
+  "notes": "Please add a lot of napkins"
+}

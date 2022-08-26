@@ -1,0 +1,13 @@
+query products {
+  products {
+    name
+    code
+    stock
+    sellPrice
+    costPrice
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

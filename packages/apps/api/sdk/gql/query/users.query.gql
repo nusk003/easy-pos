@@ -1,0 +1,53 @@
+query users {
+  users {
+    email
+    firstName
+    lastName
+    mobile
+    jobTitle
+    groupAdmin
+    hotelManager
+    developer
+    pushSubscriptions {
+      id
+      enabled
+      pushSubscription {
+        endpoint
+        expirationTime
+        keys {
+          p256dh
+          auth
+        }
+      }
+      device {
+        vendor
+        model
+        type
+        browser
+        os
+      }
+      sound
+      dateUpdated
+    }
+    notifications {
+      orders
+      bookings
+      messages
+    }
+    hotels {
+      name
+      id
+    }
+    roles {
+      hotel {
+        id
+      }
+      role
+      id
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

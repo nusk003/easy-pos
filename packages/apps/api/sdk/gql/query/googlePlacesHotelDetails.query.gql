@@ -1,0 +1,16 @@
+query googlePlacesHotelDetails($placeId: String!, $sessionToken: String!) {
+  googlePlacesHotelDetails(placeId: $placeId, sessionToken: $sessionToken) {
+    placeId
+    name
+    line1
+    line2
+    town
+    postalCode
+    country
+    countryCode
+    coordinates {
+      lat
+      lng
+    }
+  }
+}

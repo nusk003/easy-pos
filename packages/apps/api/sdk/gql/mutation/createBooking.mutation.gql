@@ -1,0 +1,81 @@
+mutation createBooking($roomNumber: String, $bookingReference: String, $checkInDate: DateTime, $checkOutDate: DateTime, $carRegistration: String, $party: [BookingPartyInput!], $bookingDetails: BookingDetailsInput, $roomType: String, $estimatedTimeOfArrival: String, $numberOfAdults: Float, $numberOfChildren: Float, $clubMemberNumber: String, $dateReviewed: DateTime, $dateSubmitted: DateTime, $dateCheckedIn: DateTime, $guestId: String) {
+  createBooking(
+    roomNumber: $roomNumber
+    bookingReference: $bookingReference
+    checkInDate: $checkInDate
+    checkOutDate: $checkOutDate
+    carRegistration: $carRegistration
+    party: $party
+    bookingDetails: $bookingDetails
+    roomType: $roomType
+    estimatedTimeOfArrival: $estimatedTimeOfArrival
+    numberOfAdults: $numberOfAdults
+    numberOfChildren: $numberOfChildren
+    clubMemberNumber: $clubMemberNumber
+    dateReviewed: $dateReviewed
+    dateSubmitted: $dateSubmitted
+    dateCheckedIn: $dateCheckedIn
+    guestId: $guestId
+  ) {
+    roomNumber
+    bookingReference
+    checkInDate
+    checkOutDate
+    carRegistration
+    party {
+      id
+      firstName
+      lastName
+      ageGroup
+      email
+      mobile
+      mobileCountryCode
+      countryOfResidence
+      address
+      nationality
+      passportNumber
+      nextDestination
+      dateOfBirth
+      dietaryRequirements
+      purposeOfStay
+      specialOccasions
+      job
+      company
+      pmsId
+      carRegistration
+    }
+    bookingDetails {
+      toggleQuestion {
+        result
+        toggle
+        title
+        type
+      }
+    }
+    roomType
+    estimatedTimeOfArrival
+    numberOfAdults
+    numberOfChildren
+    clubMemberNumber
+    purposeOfStay
+    pmsId
+    dateReviewed
+    dateSubmitted
+    dateCheckedIn
+    dateCheckedOut
+    dateCanceled
+    guest {
+      mobileCountryCode
+      email
+      mobile
+      lastName
+      firstName
+      id
+    }
+    status
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

@@ -1,0 +1,29 @@
+mutation subscribeGuestPushNotifications($pushNotificationToken: String!) {
+  subscribeGuestPushNotifications(pushNotificationToken: $pushNotificationToken) {
+    deviceId
+    email
+    firstName
+    lastName
+    mobile
+    mobileCountryCode
+    dateOfBirth
+    countryOfResidence
+    address
+    nationality
+    passportNumber
+    dietaryRequirements
+    company
+    job
+    pmsId
+    threads {
+      id
+    }
+    orders {
+      id
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

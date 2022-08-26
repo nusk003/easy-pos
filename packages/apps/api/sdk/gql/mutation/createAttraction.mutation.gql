@@ -1,0 +1,9 @@
+mutation createAttraction($catalog: AttractionCatalogInput, $enabled: Boolean, $description: String) {
+  createAttraction(
+    catalog: $catalog
+    enabled: $enabled
+    description: $description
+  ) {
+    description
+  }
+}

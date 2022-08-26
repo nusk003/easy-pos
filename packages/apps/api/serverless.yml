@@ -1,0 +1,202 @@
+org: hotelmanager
+app: hotel-manager-api
+service: hotel-manager-api
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage}
+  region: eu-west-2
+  lambdaHashingVersion: 20201221
+
+  environment:
+    AWS_ACCOUNT_ID: ${self:custom.enabled.${opt:stage}, 953617489908}
+    STAGE: ${opt:stage}
+    JWT_SECRET: ${param:JWT_SECRET}
+    MONGO_DB_URI: ${param:MONGO_DB_URI}
+    ELASTICSEARCH_URI: ${param:ELASTICSEARCH_URI}
+    REDIS_URI: ${param:REDIS_URI}
+    SG_MAIL_KEY: ${param:SG_MAIL_KEY}
+    STRIPE_SK: ${param:STRIPE_SK}
+    VAPID_PUBLIC_KEY: ${param:VAPID_PUBLIC_KEY}
+    VAPID_PRIVATE_KEY: ${param:VAPID_PRIVATE_KEY}
+    GOOGLE_MAPS_API_KEY: ${param:GOOGLE_MAPS_API_KEY}
+    APALEO_CLIENT_SECRET: ${param:APALEO_CLIENT_SECRET}
+
+  iam:
+    role:
+      statements:
+        - Resource: '*'
+          Effect: Allow
+          Action:
+            - 's3:*'
+
+        - Resource: '*'
+          Effect: Allow
+          Action:
+            - 'sns:Publish'
+
+        - Resource: '*'
+          Effect: Allow
+          Action:
+            - 'states:StartExecution'
+
+        - Resource: '*'
+          Effect: Allow
+          Action:
+            - lambda:InvokeFunction
+            - lambda:InvokeAsync
+
+custom:
+  webpack:
+    webpackConfig: 'serverless/webpack.config.js'
+  serverless-offline:
+    httpPort: 5000
+    lambdaPort: 3002
+    host: 0.0.0.0
+    websocketPort: 5001
+    noPrependStageInUrl: true
+    useChildProcesses: true
+  serverless-offline-sns:
+    port: 5002
+    debug: false
+  serverless-offline-step-functions:
+    accountId: 123456789012
+    port: 5003
+    functions:
+      Execution: auto-progress-order
+  AWS_ACCOUNT_ID:
+    development: 123456789012
+    production: 953617489908
+
+functions:
+  websocket:
+    handler: src/websockets/websockets.handler.handler
+    events:
+      - websocket:
+          route: $connect
+          authorizer:
+            name: ws-auth
+            identitySource:
+              - 'route.request.querystring.Auth'
+      - websocket:
+          route: $default
+      - websocket:
+          route: $disconnect
+      - websocket:
+          route: ping
+      - websocket:
+          route: send-message
+
+  ws-auth:
+    handler: src/websockets/websockets-auth.handler.handler
+
+  hotel-stream:
+    handler: src/microservices/hotel-stream/hotel-stream.handler.handler
+    events:
+      - sns: ${opt:stage}-hotel-stream
+
+  auto-progress-order:
+    handler: src/microservices/auto-progress-order/auto-progress-order.handler.handler
+    maximumRetryAttempts: 1
+
+  send-booking-reminders:
+    handler: src/microservices/send-booking-reminders/send-booking-reminders.handler.handler
+    maximumRetryAttempts: 1
+
+  generate-attraction-places:
+    handler: src/microservices/generate-attraction-places/generate-attraction-places.handler.handler
+    maximumRetryAttempts: 1
+    timeout: 300
+
+  send-push-notifications:
+    handler: src/microservices/send-push-notifications/send-push-notifications.handler.handler
+    maximumRetryAttempts: 1
+    timeout: 300
+
+  send-email-notifications:
+    handler: src/microservices/send-email-notifications/send-email-notifications.handler.handler
+    maximumRetryAttempts: 1
+    timeout: 300
+
+  send-hotel-email-notifications:
+    handler: src/microservices/send-email-notifications/send-hotel-email-notifications.handler.handler
+    maximumRetryAttempts: 0
+    timeout: 300
+    events:
+      - schedule: rate(5 minutes)
+
+  webhook-service:
+    handler: src/microservices/webhook-service/webhook-service.handler.handler
+    maximumRetryAttempts: 1
+
+stepFunctions:
+  stateMachines:
+    auto-progress-order-sm:
+      name: ${opt:stage}-auto-progress-order-sm
+      definition:
+        StartAt: Wait
+        States:
+          Wait:
+            Type: Wait
+            SecondsPath: '$.waitDuration'
+            Next: Execution
+          Execution:
+            Type: Task
+            Resource:
+              Fn::GetAtt: [auto-progress-order, Arn]
+            End: true
+
+    send-email-notifications-sm:
+      name: ${opt:stage}-send-email-notifications-sm
+      definition:
+        StartAt: Wait
+        States:
+          Wait:
+            Type: Wait
+            SecondsPath: '$.waitDuration'
+            Next: Execution
+          Execution:
+            Type: Task
+            Resource:
+              Fn::GetAtt: [send-email-notifications, Arn]
+            End: true
+
+    send-booking-reminders-sm:
+      name: ${opt:stage}-send-booking-reminders-sm
+      definition:
+        StartAt: Wait
+        States:
+          Wait:
+            Type: Wait
+            SecondsPath: '$.waitDuration'
+            Next: Execution
+          Execution:
+            Type: Task
+            Resource:
+              Fn::GetAtt: [send-booking-reminders, Arn]
+            End: true
+
+    webhook-service-sm:
+      name: ${opt:stage}-webhook-service-sm
+      definition:
+        StartAt: Wait
+        States:
+          Wait:
+            Type: Wait
+            SecondsPath: '$.waitDuration'
+            Next: Execution
+          Execution:
+            Type: Task
+            Resource:
+              Fn::GetAtt: [webhook-service, Arn]
+            End: true
+
+plugins:
+  - serverless-webpack
+  - serverless-step-functions
+  - '@hm/serverless-offline-step-functions'
+  - serverless-offline-sns
+  - serverless-offline

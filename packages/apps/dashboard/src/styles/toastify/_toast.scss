@@ -1,0 +1,53 @@
+.#{$rt-namespace}__toast {
+  width: max-content;
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  padding: 0;
+  border-radius: $rt-border-radius;
+  box-shadow: 0px 4px 16px rgba(100, 100, 100, 0.08);
+  border: 0.5px solid #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  color: #414141;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+  direction: ltr;
+  &--rtl {
+    direction: rtl;
+  }
+  &--default {
+    background: $rt-color-default;
+    color: $rt-text-color-default;
+  }
+  &--info {
+    background: $rt-color-info;
+  }
+  &--success {
+    background: $rt-color-success;
+  }
+  &--warning {
+    background: $rt-color-warning;
+  }
+  &--error {
+    background: $rt-color-error;
+  }
+  &-body {
+    margin-right: 0;
+  }
+}
+
+@media #{$rt-mobile} {
+  .#{$rt-namespace}__toast {
+    margin-bottom: 0;
+  }
+}

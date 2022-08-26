@@ -1,0 +1,217 @@
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0;
+      font-weight: 400;
+      background-color: #fff;
+      color: #000000;
+    }
+
+    p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 21px;
+    }
+
+    strong {
+      font-weight: 500;
+    }
+
+    a {
+      text-decoration: underline;
+      color: inherit !important;
+      font-weight: 500;
+    }
+
+    .wrapper {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+        Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    }
+
+    .button {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+        Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+      display: block;
+      margin: 0 20px;
+      padding: 12px 0;
+      background: #000000;
+      border-radius: 12px;
+      color: #fff !important;
+      cursor: pointer;
+      border-style: unset;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .bg-blue {
+      background-color: #1a73e8;
+    }
+
+    @media screen and (min-width: 768px) {
+      body {
+        background-color: #f4f4f4;
+      }
+
+      .wrapper {
+        width: 768px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div style='background-color: #fff' class='wrapper'>
+    <div style='
+          padding: 0 20px;
+          padding-top: 24px;
+          font-weight: 600;
+          font-size: 25px;
+        '>
+      {{#if guestApp}}
+      {{#if rejected}}
+      {{spaceName}} were unable to process your order.
+      {{else}}
+      {{spaceName}} have accepted your order.
+      {{/if}}
+      {{else}}
+      Order {{orderReference}} is awaiting approval
+      {{/if}}
+    </div>
+
+    <div style='padding: 20px;'>
+      {{#if guestApp}}
+      {{#if rejected}}
+      <p style="font-size: 14px">
+        You will receive a full refund for this transaction
+      </p>
+      {{else}}
+      <p>
+        Thanks for ordering
+        <br />
+        {{firstName}}
+        {{lastName}},
+      </p>
+      {{/if}}
+      {{else}}
+      <p style="font-size: 14px">
+        Please accept this order on your Dashboard.
+      </p>
+      {{/if}}
+    </div>
+
+    <div style='
+          background-color: #f9f9f9;
+          padding: 0 20px;
+          padding-top: 20px;
+          margin-bottom: 20px;
+          font-weight: 500;
+        '>
+      <p style="font-size: 14px; color: gray">{{date}}</p>
+      <p style="font-size: 15px">Order {{orderReference}}</p>
+      <p style="font-size: 15px">{{delivery}} {{roomNumber}}</p>
+
+      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 20px 0; padding-bottom: 12px">
+        {{#each items}}
+        <tr>
+          <td valign="top"
+            style="width: auto; vertical-align: top; padding-right: 8px; font-weight: 500; font-size: 15px;">
+            {{this.quantity}}x
+          </td>
+
+          <td valign="top"
+            style="width: 100%; vertical-align: top; margin: 0 8px; font-weight: 500; font-size: 15px; padding-bottom: 12px">
+            {{this.name}}
+            <div style="font-weight: 400; color: gray">
+              {{#each this.options}}
+              <div>
+                {{this.name}}
+              </div>
+              {{/each}}
+            </div>
+          </td>
+
+          <td valign="top"
+            style="width: auto; vertical-align: top; text-align: right; padding-left: 8px; font-weight: 500; font-size: 15px">
+            {{this.totalPrice}}
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+
+      <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; margin: 20px 0; padding-bottom: 12px">
+        <tr>
+          <td valign="top"
+            style="width: auto; vertical-align: top; margin: 0 8px; font-weight: 400; font-size: 15px; color: gray; padding-bottom: 4px">
+            Subtotal
+          </td>
+          <td valign="top"
+            style="width: auto; vertical-align: top; text-align: right; padding-left: 8px; font-weight: 400; font-size: 15px; color: gray">
+            {{subtotal}}
+          </td>
+        </tr>
+
+        {{#each surcharges}}
+        <tr>
+          <td valign="top"
+            style="width: auto; vertical-align: top; margin: 0 8px; font-weight: 400; font-size: 15px; color: gray; padding-bottom: 4px">
+            {{this.name}}
+          </td>
+          <td valign="top"
+            style="width: auto; vertical-align: top; text-align: right; padding-left: 8px; font-weight: 400; font-size: 15px; color: gray">
+            +{{this.value}}
+          </td>
+        </tr>
+        {{/each}}
+
+        {{#if discount}}
+        <tr>
+          <td valign="top"
+            style="width: auto; vertical-align: top; margin: 0 8px; font-weight: 400; font-size: 15px; color: gray; padding-bottom: 4px">
+            {{discount.name}}
+          </td>
+          <td valign="top"
+            style="width: auto; vertical-align: top; text-align: right; padding-left: 8px; font-weight: 400; font-size: 15px; color: gray">
+            -{{discount.value}}
+          </td>
+        </tr>
+        {{/if}}
+
+        <tr>
+          <td valign="top"
+            style="width: auto; vertical-align: top; margin: 0 8px; font-weight: 500; font-size: 24px; padding-top: 12px; padding-bottom: 8px;">
+            Total
+          </td>
+          <td valign="top"
+            style="width: auto; vertical-align: top; text-align: right; padding-left: 8px; font-weight: 500; font-size: 24px; padding-top: 12px; padding-bottom: 8px;">
+            {{totalPrice}}
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div>
+      <a {{#unless guestApp}}class="button bg-blue" {{/unless}} class="button" href='{{orderLink}}'>View Order</a>
+    </div>
+
+    <div style='padding: 20px'>
+      <p style='
+            font-size: 14px; 
+            font-weight: 400;
+            color: gray;
+          '>
+        If there are any issues at all, please reach out to
+        <strong>hello@hotelmanager.co.</strong>
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

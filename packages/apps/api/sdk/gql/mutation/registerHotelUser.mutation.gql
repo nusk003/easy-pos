@@ -1,0 +1,10 @@
+mutation registerHotelUser($id: String!, $firstName: String!, $lastName: String!, $mobile: String!, $termsAndConditions: Boolean!) {
+  registerHotelUser(
+    id: $id
+    firstName: $firstName
+    lastName: $lastName
+    mobile: $mobile
+    termsAndConditions: $termsAndConditions
+  )
+}
+    

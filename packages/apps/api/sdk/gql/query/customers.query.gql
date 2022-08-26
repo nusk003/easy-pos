@@ -1,0 +1,13 @@
+query customers {
+  customers {
+    firstName
+    lastName
+    nic
+    phone
+    address
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

@@ -1,0 +1,49 @@
+query threads($sort: ThreadSortInput, $limit: Float, $offset: Float, $guestId: String, $resolved: Boolean) {
+  threads(
+    sort: $sort
+    limit: $limit
+    offset: $offset
+    guestId: $guestId
+    resolved: $resolved
+  ) {
+    resolved
+    guest {
+      mobileCountryCode
+      mobile
+      lastName
+      firstName
+      email
+      id
+    }
+    order {
+      pricelist {
+        id
+        name
+      }
+      space {
+        id
+        name
+      }
+      discount {
+        value
+        name
+      }
+      subtotal
+      orderReference
+      totalPrice
+      dateCreated
+      id
+      id
+    }
+    lastMessage {
+      author
+      text
+      dateCreated
+      id
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

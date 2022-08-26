@@ -1,0 +1,6 @@
+query omnivoreLocations {
+  omnivoreLocations {
+    id
+    provider
+  }
+}

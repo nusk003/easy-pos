@@ -1,0 +1,42 @@
+mutation updateAttraction($data: UpdateAttractionInput!) {
+  updateAttraction(data: $data) {
+    catalog {
+      categories {
+        id
+        name
+        description
+        places {
+          id
+          placeId
+          name
+          address
+          rating
+          note
+          coordinates {
+            lat
+            lng
+          }
+          photos
+          description
+          website
+          phone
+          requestBooking
+          labels {
+            id
+            name
+          }
+        }
+      }
+      labels {
+        id
+        name
+      }
+    }
+    enabled
+    description
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

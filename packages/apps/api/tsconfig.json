@@ -1,0 +1,20 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@constants": ["src/constants/index"],
+      "@config/*": ["src/config/*"],
+      "@libs/*": ["src/libs/*"],
+      "@dev/*": ["dev/*"],
+      "@tests/*": ["tests/*"]
+    },
+    "types": ["node", "jest"],
+    "typeRoots": ["./node_modules/@types", "./types/*.d.ts"],
+    "noEmit": false,
+    "sourceMap": true,
+    "useUnknownInCatchVariables": false
+  },
+  "include": ["src", "dev", "types"]
+}

@@ -1,0 +1,4 @@
+mutation deleteMarketplaceApp($where: WhereInputType!) {
+  deleteMarketplaceApp(where: $where)
+}
+    

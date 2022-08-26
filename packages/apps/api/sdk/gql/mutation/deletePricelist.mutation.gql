@@ -1,0 +1,4 @@
+mutation deletePricelist($where: WhereInputType!) {
+  deletePricelist(where: $where)
+}
+    

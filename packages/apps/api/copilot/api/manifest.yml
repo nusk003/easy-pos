@@ -1,0 +1,17 @@
+name: api
+type: Request-Driven Web Service
+
+image:
+  build: Dockerfile
+  port: 80
+
+http:
+  healthcheck:
+    path: /_healthcheck
+    healthy_threshold: 3
+    unhealthy_threshold: 5
+    interval: 10s
+    timeout: 5s
+
+cpu: 1024
+memory: 2048

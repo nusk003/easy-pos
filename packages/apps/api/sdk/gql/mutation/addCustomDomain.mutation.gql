@@ -1,0 +1,4 @@
+mutation addCustomDomain($domain: String!) {
+  addCustomDomain(domain: $domain)
+}
+    

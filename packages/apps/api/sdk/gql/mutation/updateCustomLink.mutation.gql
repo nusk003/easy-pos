@@ -1,0 +1,9 @@
+mutation updateCustomLink($where: CustomLinkWhereInput!, $data: UpdateCustomLinkInput!) {
+  updateCustomLink(where: $where, data: $data) {
+    id
+    enabled
+    name
+    link
+    photo
+  }
+}

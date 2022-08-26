@@ -1,0 +1,4 @@
+mutation authorizeApaleo($code: String!) {
+  authorizeApaleo(code: $code)
+}
+    

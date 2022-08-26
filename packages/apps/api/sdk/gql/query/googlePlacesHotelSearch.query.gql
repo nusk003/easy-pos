@@ -1,0 +1,7 @@
+query googlePlacesHotelSearch($query: String!, $sessionToken: String!) {
+  googlePlacesHotelSearch(query: $query, sessionToken: $sessionToken) {
+    placeId
+    title
+    description
+  }
+}

@@ -1,0 +1,14 @@
+query stripeAccount {
+  stripeAccount {
+    payoutsEnabled
+    paymentsEnabled
+    accountLink
+    accountNumberLast4
+    sortCode
+    payoutSchedule {
+      interval
+      date
+    }
+    dateCreated
+  }
+}

@@ -1,0 +1,4 @@
+mutation deleteCustomLink($where: WhereInputType!) {
+  deleteCustomLink(where: $where)
+}
+    

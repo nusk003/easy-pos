@@ -1,0 +1,7 @@
+query marketplaceAppSubscriptions {
+  marketplaceAppSubscriptions {
+    id
+    endpoint
+    topics
+  }
+}

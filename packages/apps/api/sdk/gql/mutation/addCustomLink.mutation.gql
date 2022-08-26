@@ -1,0 +1,15 @@
+mutation addCustomLink($id: String!, $enabled: Boolean!, $name: String!, $link: String!, $photo: String) {
+  addCustomLink(
+    id: $id
+    enabled: $enabled
+    name: $name
+    link: $link
+    photo: $photo
+  ) {
+    id
+    enabled
+    name
+    link
+    photo
+  }
+}

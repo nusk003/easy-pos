@@ -1,0 +1,47 @@
+mutation createSale($items: [SaleItemInput!]!, $totalPrice: Float!, $salesReference: String, $subtotal: Float!, $instalmentPlan: SaleInstalmentPlanInput!, $customerNIC: String!) {
+  createSale(
+    items: $items
+    totalPrice: $totalPrice
+    salesReference: $salesReference
+    subtotal: $subtotal
+    instalmentPlan: $instalmentPlan
+    customerNIC: $customerNIC
+  ) {
+    sale {
+      items {
+        id
+        productId
+        title
+        quantity
+        totalSell
+        totalCost
+      }
+      totalPrice
+      salesReference
+      subtotal
+      customer {
+        address
+        phone
+        nic
+        lastName
+        firstName
+        id
+      }
+      instalmentPlan {
+        noTerms
+        initialPayment
+        terms {
+          id
+          dueDate
+          dueAmount
+          paidAmount
+          completed
+        }
+      }
+      id
+      dateCreated
+      deleted
+      dateUpdated
+    }
+  }
+}

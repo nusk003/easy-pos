@@ -1,0 +1,19 @@
+mutation createProduct($name: String!, $code: String!, $stock: Float!, $sellPrice: Float!, $costPrice: Float!) {
+  createProduct(
+    name: $name
+    code: $code
+    stock: $stock
+    sellPrice: $sellPrice
+    costPrice: $costPrice
+  ) {
+    name
+    code
+    stock
+    sellPrice
+    costPrice
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

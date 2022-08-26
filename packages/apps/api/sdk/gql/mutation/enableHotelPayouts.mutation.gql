@@ -1,0 +1,20 @@
+mutation enableHotelPayouts($payoutsStrategy: PayoutsStrategy!) {
+  enableHotelPayouts(payoutsStrategy: $payoutsStrategy) {
+    stripe {
+      accountId
+      linked
+      publicKey
+      dateCreated
+    }
+    hm {
+      accountNumberLast4
+      sortCode
+      payoutSchedule {
+        interval
+        date
+      }
+      dateCreated
+    }
+    enabled
+  }
+}

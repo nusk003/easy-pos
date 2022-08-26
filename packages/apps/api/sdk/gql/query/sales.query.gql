@@ -1,0 +1,47 @@
+query sales($sort: SalesSortInput, $limit: Float, $offset: Float, $guestId: String, $completed: Boolean, $rejected: Boolean, $startDate: DateTime, $endDate: DateTime) {
+  sales(
+    sort: $sort
+    limit: $limit
+    offset: $offset
+    guestId: $guestId
+    completed: $completed
+    rejected: $rejected
+    startDate: $startDate
+    endDate: $endDate
+  ) {
+    items {
+      id
+      productId
+      title
+      quantity
+      totalSell
+      totalCost
+    }
+    totalPrice
+    salesReference
+    subtotal
+    customer {
+      address
+      phone
+      nic
+      lastName
+      firstName
+      id
+    }
+    instalmentPlan {
+      noTerms
+      initialPayment
+      terms {
+        id
+        dueDate
+        dueAmount
+        paidAmount
+        completed
+      }
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

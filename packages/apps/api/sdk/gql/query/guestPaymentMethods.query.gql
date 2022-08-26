@@ -1,0 +1,8 @@
+query guestPaymentMethods {
+  guestPaymentMethods {
+    id
+    brand
+    country
+    last4
+  }
+}

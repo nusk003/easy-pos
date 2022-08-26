@@ -1,0 +1,7 @@
+query bookingAnalytics($startDate: DateTime, $endDate: DateTime) {
+  bookingAnalytics(startDate: $startDate, endDate: $endDate) {
+    noArrivals
+    noDepartures
+    noSubmittedBookings
+  }
+}

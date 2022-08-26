@@ -1,0 +1,4 @@
+query hotelIDByDomain($domain: String!) {
+  hotelIDByDomain(domain: $domain)
+}
+    

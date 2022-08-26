@@ -1,0 +1,13 @@
+mutation updateProduct($where: ProductWhereInput!, $data: UpdateProductInput!) {
+  updateProduct(where: $where, data: $data) {
+    name
+    code
+    stock
+    sellPrice
+    costPrice
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

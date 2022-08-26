@@ -1,0 +1,11 @@
+query hmPayAccount {
+  hmPayAccount {
+    accountNumberLast4
+    sortCode
+    payoutSchedule {
+      interval
+      date
+    }
+    dateCreated
+  }
+}

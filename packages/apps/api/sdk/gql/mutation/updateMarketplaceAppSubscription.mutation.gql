@@ -1,0 +1,7 @@
+mutation updateMarketplaceAppSubscription($where: MarketplaceAppSubscriptionWhereInput!, $data: UpdateMarketplaceAppSubscriptionInput!) {
+  updateMarketplaceAppSubscription(where: $where, data: $data) {
+    id
+    endpoint
+    topics
+  }
+}

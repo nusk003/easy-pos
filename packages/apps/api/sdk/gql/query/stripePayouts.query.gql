@@ -1,0 +1,6 @@
+query stripePayouts {
+  stripePayouts {
+    totalPrice
+    arrivalDate
+  }
+}

@@ -1,0 +1,22 @@
+query marketplaceApp($live: Boolean, $enabled: Boolean, $where: GetMarketplaceAppWhereInput!) {
+  marketplaceApp(live: $live, enabled: $enabled, where: $where) {
+    name
+    description
+    type
+    logo
+    websiteURL
+    documentationURL
+    helpURL
+    redirectURLs
+    connectLink
+    live
+    enabled
+    developer {
+      id
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

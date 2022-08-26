@@ -1,0 +1,4 @@
+mutation deleteSpaces($where: [WhereInputType!]!) {
+  deleteSpaces(where: $where)
+}
+    

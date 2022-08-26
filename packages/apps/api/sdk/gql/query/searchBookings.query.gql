@@ -1,0 +1,78 @@
+query searchBookings($query: String, $limit: Float, $offset: Float, $status: String, $startCheckInDate: DateTime, $startCheckOutDate: DateTime, $endCheckInDate: DateTime, $endCheckOutDate: DateTime, $startDate: DateTime, $endDate: DateTime) {
+  searchBookings(
+    query: $query
+    limit: $limit
+    offset: $offset
+    status: $status
+    startCheckInDate: $startCheckInDate
+    startCheckOutDate: $startCheckOutDate
+    endCheckInDate: $endCheckInDate
+    endCheckOutDate: $endCheckOutDate
+    startDate: $startDate
+    endDate: $endDate
+  ) {
+    data {
+      roomNumber
+      bookingReference
+      checkInDate
+      checkOutDate
+      carRegistration
+      party {
+        id
+        firstName
+        lastName
+        ageGroup
+        email
+        mobile
+        mobileCountryCode
+        countryOfResidence
+        address
+        nationality
+        passportNumber
+        nextDestination
+        dateOfBirth
+        dietaryRequirements
+        purposeOfStay
+        specialOccasions
+        job
+        company
+        pmsId
+        carRegistration
+      }
+      bookingDetails {
+        toggleQuestion {
+          result
+          toggle
+          title
+          type
+        }
+      }
+      roomType
+      estimatedTimeOfArrival
+      numberOfAdults
+      numberOfChildren
+      clubMemberNumber
+      purposeOfStay
+      pmsId
+      dateReviewed
+      dateSubmitted
+      dateCheckedIn
+      dateCheckedOut
+      dateCanceled
+      guest {
+        mobileCountryCode
+        email
+        mobile
+        lastName
+        firstName
+        id
+      }
+      status
+      id
+      dateCreated
+      deleted
+      dateUpdated
+    }
+    count
+  }
+}

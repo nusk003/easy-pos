@@ -1,0 +1,4 @@
+mutation deleteUser($where: WhereInputType!) {
+  deleteUser(where: $where)
+}
+    

@@ -1,0 +1,16 @@
+query omnivoreOptions($locationId: String!) {
+  omnivoreOptions(locationId: $locationId) {
+    employees {
+      id
+      name
+    }
+    orderTypes {
+      id
+      name
+    }
+    revenueCenters {
+      id
+      name
+    }
+  }
+}

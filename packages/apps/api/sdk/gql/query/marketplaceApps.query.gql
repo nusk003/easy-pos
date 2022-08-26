@@ -1,0 +1,22 @@
+query marketplaceApps($live: Boolean, $enabled: Boolean) {
+  marketplaceApps(live: $live, enabled: $enabled) {
+    name
+    description
+    type
+    logo
+    websiteURL
+    documentationURL
+    helpURL
+    redirectURLs
+    connectLink
+    live
+    enabled
+    developer {
+      id
+    }
+    id
+    dateCreated
+    deleted
+    dateUpdated
+  }
+}

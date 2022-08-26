@@ -1,0 +1,8 @@
+mutation anonGuestLogin($deviceId: String!) {
+  anonGuestLogin(deviceId: $deviceId) {
+    deviceId
+    dateUpdated
+    dateCreated
+    id
+  }
+}

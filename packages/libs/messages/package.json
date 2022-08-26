@@ -1,0 +1,23 @@
+{
+  "name": "@hm/messages",
+  "version": "1.33.0-alpha.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@hm/eslint-config": "^1.33.0-alpha.0",
+    "@hm/prettier-config": "^1.33.0-alpha.0",
+    "eslint": "7.7.0",
+    "nodemon": "^2.0.4",
+    "prettier": "2.0.5",
+    "ts-node": "^8.10.2"
+  },
+  "scripts": {
+    "clean": "rm -rf lib/*",
+    "build": "yarn run clean && tsc --p tsconfig.json",
+    "play": "nodemon -e ts -w . -x ts-node src/playground.ts"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.4"
+  }
+}

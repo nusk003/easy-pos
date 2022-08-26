@@ -1,0 +1,4 @@
+mutation createGuestPaymentMethod($name: String!, $token: String!) {
+  createGuestPaymentMethod(name: $name, token: $token)
+}
+    

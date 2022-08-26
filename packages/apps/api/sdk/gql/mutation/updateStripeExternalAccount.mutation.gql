@@ -1,0 +1,8 @@
+mutation updateStripeExternalAccount($accountNumber: String!, $sortCode: String!, $payoutSchedule: StripeExternalAccountPayoutScheduleInput!) {
+  updateStripeExternalAccount(
+    accountNumber: $accountNumber
+    sortCode: $sortCode
+    payoutSchedule: $payoutSchedule
+  )
+}
+    

@@ -1,0 +1,45 @@
+{
+  "hotelName": "Elah the Bay",
+  "spaceName": "Sunnies Cafe",
+  "firstName": "Alex",
+  "lastName": "Wanderwall",
+  "orderReference": "#AE26CF",
+  "guestApp": true,
+  "rejected": true,
+  "roomNumber": "133",
+  "items": [
+    {
+      "name": "Marinated giant green olives",
+      "options": [{ "name": "Small" }],
+      "quantity": 2,
+      "totalPrice": "£7.90"
+    },
+    {
+      "name": "Marinated giant green olives",
+      "options": [],
+      "quantity": 1,
+      "totalPrice": "£3.95"
+    },
+    {
+      "name": "Beer battered onion rings",
+      "options": [],
+      "quantity": 1,
+      "totalPrice": "£3.50"
+    }
+  ],
+  "subtotal": "£45.25",
+  "delivery": "Room",
+  "totalPrice": "£45.25",
+  "surcharges": [
+    {
+      "name": "10% service charge",
+      "value": "£4.50"
+    }
+  ],
+  "discount": {
+    "name": "10% off order",
+    "value": "£4.50"
+  },
+  "orderLink": "https://hotelmanager.co",
+  "date": "2020-01-01 10:24 AM"
+}

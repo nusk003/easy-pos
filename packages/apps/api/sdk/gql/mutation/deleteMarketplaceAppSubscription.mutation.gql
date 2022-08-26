@@ -1,0 +1,4 @@
+mutation deleteMarketplaceAppSubscription($where: WhereInputType!) {
+  deleteMarketplaceAppSubscription(where: $where)
+}
+    

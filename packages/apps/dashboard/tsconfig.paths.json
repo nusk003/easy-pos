@@ -1,0 +1,12 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@constants": ["src/constants/index"],
+      "@dev/*": ["dev/*"],
+      "@tests/*": ["tests/*"]
+    }
+  }
+}
