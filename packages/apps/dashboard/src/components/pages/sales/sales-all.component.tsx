@@ -1,5 +1,5 @@
 import { Customer, Sale, SearchProductsQueryVariables } from '@hm/sdk';
-import { Grid, Link, Text, TextAvatar } from '@src/components/atoms';
+import { Button, Grid, Link, Text, TextAvatar } from '@src/components/atoms';
 import { Inputs, Table } from '@src/components/molecules';
 import { Header } from '@src/components/templates';
 import { CustomersModal } from '@src/components/templates/customers';
@@ -9,6 +9,7 @@ import { useSearchSales } from '@src/xhr/query/search-sales.query';
 import dayjs from 'dayjs';
 import _ from 'lodash';
 import React, { useEffect, useState } from 'react';
+import { FaLocationArrow } from 'react-icons/fa';
 import { useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -95,7 +96,18 @@ export const SalesAll: React.FC = () => {
           setVisibleCustomerModal(false);
         }}
       />
-      <Header title="Sales" />
+      <Header
+        title="Sales"
+        primaryButton={
+          <Button
+            buttonStyle="primary"
+            leftIcon={<FaLocationArrow size={10} />}
+            onClick={() => history.push('/sales/create')}
+          >
+            Add Sale
+          </Button>
+        }
+      />
 
       <SWrapper>
         <Table.Provider>
@@ -109,13 +121,6 @@ export const SalesAll: React.FC = () => {
               name="allProductsSearch"
               autoComplete="off"
             />
-
-            <Link
-              disableOnClick={false}
-              onClick={() => history.push('/sales/create')}
-            >
-              Add new sale
-            </Link>
           </Table.Header>
           <Table.Body>
             {sales?.length ? (

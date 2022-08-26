@@ -1,5 +1,5 @@
 import { Customer, SearchProductsQueryVariables } from '@hm/sdk';
-import { Grid, Link, Text, TextAvatar } from '@src/components/atoms';
+import { Button, Grid, Link, Text, TextAvatar } from '@src/components/atoms';
 import { Inputs, Table } from '@src/components/molecules';
 import { Header } from '@src/components/templates';
 import { CustomersModal } from '@src/components/templates/customers';
@@ -8,6 +8,7 @@ import { useSearchCustomers } from '@src/xhr/query';
 import dayjs from 'dayjs';
 import _ from 'lodash';
 import React, { useEffect, useState } from 'react';
+import { FaLocationArrow } from 'react-icons/fa';
 import { useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -95,7 +96,18 @@ export const CustomersAll: React.FC = () => {
           setVisibleCustomerModal(false);
         }}
       />
-      <Header title="Customers" />
+      <Header
+        title="Customers"
+        primaryButton={
+          <Button
+            buttonStyle="primary"
+            leftIcon={<FaLocationArrow size={10} />}
+            onClick={() => setVisibleCustomerModal(true)}
+          >
+            Add Customer
+          </Button>
+        }
+      />
 
       <SWrapper>
         <Table.Provider>
@@ -109,13 +121,6 @@ export const CustomersAll: React.FC = () => {
               name="allProductsSearch"
               autoComplete="off"
             />
-
-            <Link
-              disableOnClick={false}
-              onClick={() => setVisibleCustomerModal(true)}
-            >
-              Add new customer
-            </Link>
           </Table.Header>
           <Table.Body>
             {customers?.length ? (

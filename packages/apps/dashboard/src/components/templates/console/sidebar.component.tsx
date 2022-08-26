@@ -272,7 +272,7 @@ export const Sidebar: React.FC<Props> = ({
                 <SidebarSubmenuItem
                   {...submenuItemProps}
                   title="Menus"
-                  location="/pricelists"
+                  location="/sales"
                   matchedLocations={['/pricelists/:pricelistId/']}
                   locationsBlacklist={[
                     '/pricelists/discounts',
