@@ -4,6 +4,7 @@ import { ElasticsearchModule } from '@src/libs/elasticsearch';
 import { AuthModule } from '@src/modules/auth/auth.module';
 import { HotelModule } from '@src/modules/hotel/hotel.module';
 import { CustomerModule } from '../customer/customer.module';
+import { ProductModule } from '../product/product.module';
 import { Sale } from './sale.entity';
 import { SaleResolver } from './sale.resolver';
 import { SaleService } from './sale.service';
@@ -15,6 +16,7 @@ import { SaleService } from './sale.service';
     AuthModule,
     HotelModule,
     CustomerModule,
+    ProductModule,
   ],
   providers: [SaleService, SaleResolver],
   exports: [SaleService],

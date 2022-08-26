@@ -16,6 +16,7 @@ import dayjs from 'dayjs';
 import { ObjectId } from 'mongodb';
 import { customAlphabet } from 'nanoid';
 import { CustomerService } from '../customer/customer.service';
+import { ProductService } from '../product/product.service';
 import {
   CreateSaleArgs,
   SalePaginationArgs,
@@ -31,6 +32,7 @@ import { SaleService } from './sale.service';
 export class SaleResolver {
   constructor(
     private readonly saleService: SaleService,
+    private readonly productService: ProductService,
     private readonly hotelService: HotelService,
     private readonly customerService: CustomerService,
     private readonly em: EntityManager
@@ -113,6 +115,15 @@ export class SaleResolver {
     await this.em
       .transactional(async (em) => {
         sale.hotel = this.saleService.hotelReference;
+
+        const itemPromises = sale.items.map(async (item) => {
+          const product = await this.productService.findOne(item.productId);
+          product.stock = product.stock - item.quantity;
+          await this.productService.indexOne(product);
+          em.persist(product);
+        });
+
+        await Promise.all(itemPromises);
 
         wrap(sale).assign(
           {
