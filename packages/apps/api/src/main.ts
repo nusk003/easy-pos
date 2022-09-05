@@ -64,9 +64,9 @@ const bootstrap = async () => {
     sendHotelEmailNotificationsHandler();
   }, 1000);
 
-  if (!__sls_offline__) {
-    new WSServerMock();
-  }
+  // if (!__sls_offline__) {
+  //   new WSServerMock();
+  // }
 };
 
 bootstrap();

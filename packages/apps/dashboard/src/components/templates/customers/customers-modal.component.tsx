@@ -7,7 +7,7 @@ import { CustomersForm } from './customers-form.component';
 
 interface Props {
   visible: boolean;
-  onClose: () => void;
+  onClose: (mutate?: boolean) => void;
   customer?: Customer;
 }
 
@@ -37,7 +37,10 @@ export const CustomersModal: React.FC<Props> = ({
           {customer ? 'Update' : 'Add new'} customer
         </Text.Heading>
         {!forceRemount ? (
-          <CustomersForm defaultValues={customer} onClose={onClose} />
+          <CustomersForm
+            defaultValues={customer}
+            onClose={() => onClose(true)}
+          />
         ) : null}
       </SWrapper>
     </Modal>

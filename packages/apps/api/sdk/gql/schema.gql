@@ -1024,6 +1024,7 @@ type Sale {
   subtotal: Float!
   customer: Customer!
   instalmentPlan: SaleInstalmentPlan!
+  cancelled: Boolean
 }
 
 type SaleItem {
@@ -2372,4 +2373,5 @@ input SaleWhereInput {
 
 input UpdateSaleInput {
   instalmentPlan: SaleInstalmentPlanInput
+  cancelled: Boolean
 }

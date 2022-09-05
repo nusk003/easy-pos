@@ -1,7 +1,8 @@
-import { Button, Grid, Text } from '@src/components/atoms';
+import { Button, Grid, Text, toast } from '@src/components/atoms';
 import { Header, PaymentsAddModal } from '@src/components/templates';
 import { theme } from '@src/components/theme';
 import { format } from '@src/util/format';
+import { sdk } from '@src/xhr/graphql-request';
 import { useSale } from '@src/xhr/query';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
@@ -35,13 +36,28 @@ const SalesDetail: React.FC<SalesDetailProps> = ({ title, value }) => {
 
 export const Sale: React.FC = () => {
   const saleId = useRouteMatch<{ id: string }>('/sale/:id')?.params?.id;
-  const { data: sale } = useSale(saleId);
+  const { data: sale, mutate } = useSale(saleId);
 
   const [visiblePaymentsModal, setVisiblePaymentsModal] = useState(false);
+  const [cancelLoading, setCancelLoading] = useState(false);
 
   const salesReference = sale?.salesReference?.toUpperCase() || '';
 
   const customerName = sale?.customer.firstName + ' ' + sale?.customer.lastName;
+
+  const onCancelSale = async () => {
+    setCancelLoading(true);
+    try {
+      await sdk.updateSale({
+        where: { id: sale?.id! },
+        data: { cancelled: true, instalmentPlan: sale?.instalmentPlan },
+      });
+      await mutate();
+    } catch {
+      toast.warn('Unable to cancel');
+    }
+    setCancelLoading(false);
+  };
 
   return (
     <>
@@ -92,39 +108,63 @@ export const Sale: React.FC = () => {
             </Grid>
           ))}
         </SProductsWrapper>
-        <Grid
-          mt="16px"
-          gridAutoFlow="column"
-          justifyContent="flex-end"
-          alignItems="center"
-          gridGap="8px"
-        >
-          <Button buttonStyle="delete">Cancel sale</Button>
-          <Button
-            buttonStyle="primary"
-            onClick={() => setVisiblePaymentsModal(true)}
+        {!sale?.cancelled ? (
+          <Grid
+            mt="16px"
+            gridAutoFlow="column"
+            justifyContent="flex-end"
+            alignItems="center"
+            gridGap="8px"
           >
-            Create payment
-          </Button>
-        </Grid>
+            <Button
+              buttonStyle="delete"
+              loading={cancelLoading}
+              onClick={onCancelSale}
+            >
+              Cancel sale
+            </Button>
+            <Button
+              buttonStyle="primary"
+              onClick={() => setVisiblePaymentsModal(true)}
+            >
+              Create payment
+            </Button>
+          </Grid>
+        ) : (
+          <Text.BoldDescriptor mt="16px" color={theme.colors.red}>
+            This sale is cancelled
+          </Text.BoldDescriptor>
+        )}
 
         <SProductsWrapper>
           <Text.BoldDescriptor mb="24px" fontWeight="semibold">
             Terms
           </Text.BoldDescriptor>
-          {sale?.instalmentPlan.terms.map((term, index) => (
-            <Grid mt="8px" gridAutoFlow="column" alignItems="center">
-              <Text.Body>Term {index + 1}</Text.Body>
-              <div>
-                <Text.BodyBold>
-                  {dayjs(term.dueDate).format('DD MMM YYYY')}
+          {sale?.instalmentPlan.terms.map((term, index) => {
+            const dueAmount = term.dueAmount;
+            const paidAmount = term.paidAmount;
+            const paidAmountColor =
+              dueAmount === paidAmount
+                ? theme.textColors.green
+                : paidAmount > 0
+                ? theme.textColors.orange
+                : theme.textColors.gray;
+            return (
+              <Grid mt="8px" gridAutoFlow="column" alignItems="center">
+                <Text.Body>Term {index + 1}</Text.Body>
+                <div>
+                  <Text.BodyBold>
+                    {dayjs(term.dueDate).format('DD MMM YYYY')}
+                  </Text.BodyBold>
+                  <Text.Descriptor>Due date</Text.Descriptor>
+                </div>
+                <Text.Body>{format.currency(term.dueAmount)}</Text.Body>
+                <Text.BodyBold color={paidAmountColor}>
+                  {format.currency(term.paidAmount)}
                 </Text.BodyBold>
-                <Text.Descriptor>Due date</Text.Descriptor>
-              </div>
-              <Text.Body>{format.currency(term.dueAmount)}</Text.Body>
-              <Text.BodyBold>{format.currency(term.paidAmount)}</Text.BodyBold>
-            </Grid>
-          ))}
+              </Grid>
+            );
+          })}
         </SProductsWrapper>
       </SWrapper>
     </>

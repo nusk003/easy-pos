@@ -7,7 +7,7 @@ import { ProductsForm } from './products-form.component';
 
 interface Props {
   visible: boolean;
-  onClose: () => void;
+  onClose: (mutate?: boolean) => void;
   product?: Product;
 }
 
@@ -37,7 +37,7 @@ export const ProductsModal: React.FC<Props> = ({
           {product ? 'Update' : 'Add new'} product
         </Text.Heading>
         {!forceRemount ? (
-          <ProductsForm defaultValues={product} onClose={onClose} />
+          <ProductsForm defaultValues={product} onClose={() => onClose(true)} />
         ) : null}
       </SWrapper>
     </Modal>

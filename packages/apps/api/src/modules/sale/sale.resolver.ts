@@ -159,9 +159,9 @@ export class SaleResolver {
   async updateSale(@Args() updateSaleArgs: UpdateSaleArgs): Promise<Sale> {
     const sale = await this.saleService.findOne(updateSaleArgs.where.id);
 
-    const { instalmentPlan } = updateSaleArgs.data;
+    const { instalmentPlan, cancelled } = updateSaleArgs.data;
 
-    wrap(sale).assign({ instalmentPlan });
+    wrap(sale).assign({ instalmentPlan, cancelled });
 
     await this.em.transactional(async (em) => {
       await wrap(sale.customer).init();

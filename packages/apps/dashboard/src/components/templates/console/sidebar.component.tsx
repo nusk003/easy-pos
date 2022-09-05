@@ -324,7 +324,7 @@ export const Sidebar: React.FC<Props> = ({
       </SDivider>
 
       <SDivider>
-        <Feature name="support">
+        {/* <Feature name="support">
           <SMenusItemsWrapper isMenuVisible={isMenuVisible}>
             <SidebarMenuItem
               {...menuItemProps}
@@ -338,10 +338,10 @@ export const Sidebar: React.FC<Props> = ({
                         <Text.Body fontWeight="semibold">✕</Text.Body>
                       </Grid>
                     )
-              }
+              } 
             />
           </SMenusItemsWrapper>
-        </Feature>
+        </Feature> */}
 
         <SidebarProfile isMenuVisible={isMenuVisible} />
       </SDivider>

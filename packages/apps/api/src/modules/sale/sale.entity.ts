@@ -170,6 +170,14 @@ export class Sale extends TenantBaseEntity {
   @SDKField()
   instalmentPlan?: SaleInstalmentPlan;
 
+  @Property({
+    nullable: true,
+  })
+  @ESField()
+  @Field({ nullable: true })
+  @SDKField()
+  cancelled?: boolean;
+
   constructor(
     order?: Partial<
       Pick<

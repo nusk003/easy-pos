@@ -28,7 +28,7 @@ const createArgFields = <const>[
   'instalmentPlan',
 ];
 
-const updateArgsFields = <const>['instalmentPlan'];
+const updateArgsFields = <const>['instalmentPlan', 'cancelled'];
 
 @ArgsType()
 export class CreateSaleArgs extends CreateArgsType(Sale, createArgFields) {

@@ -30,6 +30,7 @@ mutation updateSale($where: SaleWhereInput!, $data: UpdateSaleInput!) {
         completed
       }
     }
+    cancelled
     id
     dateCreated
     deleted

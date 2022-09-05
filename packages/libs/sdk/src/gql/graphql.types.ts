@@ -2836,6 +2836,7 @@ export type Role = {
 
 export type Sale = {
   __typename?: 'Sale';
+  cancelled?: Maybe<Scalars['Boolean']>;
   customer: Customer;
   dateCreated: Scalars['DateTime'];
   dateUpdated: Scalars['DateTime'];
@@ -3147,6 +3148,7 @@ export type UpdateProductInput = {
 };
 
 export type UpdateSaleInput = {
+  cancelled?: InputMaybe<Scalars['Boolean']>;
   instalmentPlan?: InputMaybe<SaleInstalmentPlanInput>;
 };
 
@@ -3472,7 +3474,7 @@ export type CreateSaleMutationVariables = Exact<{
 }>;
 
 
-export type CreateSaleMutation = { __typename?: 'Mutation', createSale: { __typename?: 'CreateSaleResponse', sale?: { __typename?: 'Sale', totalPrice: number, salesReference?: string | undefined, subtotal: number, id: string, dateCreated: any, deleted?: boolean | undefined, dateUpdated: any, items: Array<{ __typename?: 'SaleItem', id: string, productId: string, title: string, quantity: number, totalSell: number, totalCost: number }>, customer: { __typename?: 'Customer', address: string, phone: string, nic: string, lastName: string, firstName: string, id: string }, instalmentPlan: { __typename?: 'SaleInstalmentPlan', noTerms: number, initialPayment: number, terms: Array<{ __typename?: 'SaleInstalmentTerm', id: string, dueDate?: any | undefined, dueAmount: number, paidAmount: number, completed: boolean }> } } | undefined } };
+export type CreateSaleMutation = { __typename?: 'Mutation', createSale: { __typename?: 'CreateSaleResponse', sale?: { __typename?: 'Sale', totalPrice: number, salesReference?: string | undefined, subtotal: number, cancelled?: boolean | undefined, id: string, dateCreated: any, deleted?: boolean | undefined, dateUpdated: any, items: Array<{ __typename?: 'SaleItem', id: string, productId: string, title: string, quantity: number, totalSell: number, totalCost: number }>, customer: { __typename?: 'Customer', address: string, phone: string, nic: string, lastName: string, firstName: string, id: string }, instalmentPlan: { __typename?: 'SaleInstalmentPlan', noTerms: number, initialPayment: number, terms: Array<{ __typename?: 'SaleInstalmentTerm', id: string, dueDate?: any | undefined, dueAmount: number, paidAmount: number, completed: boolean }> } } | undefined } };
 
 export type CreateSpaceMutationVariables = Exact<{
   name: Scalars['String'];
@@ -3869,7 +3871,7 @@ export type UpdateSaleMutationVariables = Exact<{
 }>;
 
 
-export type UpdateSaleMutation = { __typename?: 'Mutation', updateSale: { __typename?: 'Sale', totalPrice: number, salesReference?: string | undefined, subtotal: number, id: string, dateCreated: any, deleted?: boolean | undefined, dateUpdated: any, items: Array<{ __typename?: 'SaleItem', id: string, productId: string, title: string, quantity: number, totalSell: number, totalCost: number }>, customer: { __typename?: 'Customer', address: string, phone: string, nic: string, lastName: string, firstName: string, id: string }, instalmentPlan: { __typename?: 'SaleInstalmentPlan', noTerms: number, initialPayment: number, terms: Array<{ __typename?: 'SaleInstalmentTerm', id: string, dueDate?: any | undefined, dueAmount: number, paidAmount: number, completed: boolean }> } } };
+export type UpdateSaleMutation = { __typename?: 'Mutation', updateSale: { __typename?: 'Sale', totalPrice: number, salesReference?: string | undefined, subtotal: number, cancelled?: boolean | undefined, id: string, dateCreated: any, deleted?: boolean | undefined, dateUpdated: any, items: Array<{ __typename?: 'SaleItem', id: string, productId: string, title: string, quantity: number, totalSell: number, totalCost: number }>, customer: { __typename?: 'Customer', address: string, phone: string, nic: string, lastName: string, firstName: string, id: string }, instalmentPlan: { __typename?: 'SaleInstalmentPlan', noTerms: number, initialPayment: number, terms: Array<{ __typename?: 'SaleInstalmentTerm', id: string, dueDate?: any | undefined, dueAmount: number, paidAmount: number, completed: boolean }> } } };
 
 export type UpdateSpaceMutationVariables = Exact<{
   where: SpaceWhereInput;
@@ -4236,7 +4238,7 @@ export type SaleQueryVariables = Exact<{
 }>;
 
 
-export type SaleQuery = { __typename?: 'Query', sale: { __typename?: 'Sale', totalPrice: number, salesReference?: string | undefined, subtotal: number, id: string, dateCreated: any, deleted?: boolean | undefined, dateUpdated: any, items: Array<{ __typename?: 'SaleItem', id: string, productId: string, title: string, quantity: number, totalSell: number, totalCost: number }>, customer: { __typename?: 'Customer', address: string, phone: string, nic: string, lastName: string, firstName: string, id: string }, instalmentPlan: { __typename?: 'SaleInstalmentPlan', noTerms: number, initialPayment: number, terms: Array<{ __typename?: 'SaleInstalmentTerm', id: string, dueDate?: any | undefined, dueAmount: number, paidAmount: number, completed: boolean }> } } };
+export type SaleQuery = { __typename?: 'Query', sale: { __typename?: 'Sale', totalPrice: number, salesReference?: string | undefined, subtotal: number, cancelled?: boolean | undefined, id: string, dateCreated: any, deleted?: boolean | undefined, dateUpdated: any, items: Array<{ __typename?: 'SaleItem', id: string, productId: string, title: string, quantity: number, totalSell: number, totalCost: number }>, customer: { __typename?: 'Customer', address: string, phone: string, nic: string, lastName: string, firstName: string, id: string }, instalmentPlan: { __typename?: 'SaleInstalmentPlan', noTerms: number, initialPayment: number, terms: Array<{ __typename?: 'SaleInstalmentTerm', id: string, dueDate?: any | undefined, dueAmount: number, paidAmount: number, completed: boolean }> } } };
 
 export type SalesQueryVariables = Exact<{
   sort?: InputMaybe<SalesSortInput>;
@@ -4250,7 +4252,7 @@ export type SalesQueryVariables = Exact<{
 }>;
 
 
-export type SalesQuery = { __typename?: 'Query', sales: Array<{ __typename?: 'Sale', totalPrice: number, salesReference?: string | undefined, subtotal: number, id: string, dateCreated: any, deleted?: boolean | undefined, dateUpdated: any, items: Array<{ __typename?: 'SaleItem', id: string, productId: string, title: string, quantity: number, totalSell: number, totalCost: number }>, customer: { __typename?: 'Customer', address: string, phone: string, nic: string, lastName: string, firstName: string, id: string }, instalmentPlan: { __typename?: 'SaleInstalmentPlan', noTerms: number, initialPayment: number, terms: Array<{ __typename?: 'SaleInstalmentTerm', id: string, dueDate?: any | undefined, dueAmount: number, paidAmount: number, completed: boolean }> } }> };
+export type SalesQuery = { __typename?: 'Query', sales: Array<{ __typename?: 'Sale', totalPrice: number, salesReference?: string | undefined, subtotal: number, cancelled?: boolean | undefined, id: string, dateCreated: any, deleted?: boolean | undefined, dateUpdated: any, items: Array<{ __typename?: 'SaleItem', id: string, productId: string, title: string, quantity: number, totalSell: number, totalCost: number }>, customer: { __typename?: 'Customer', address: string, phone: string, nic: string, lastName: string, firstName: string, id: string }, instalmentPlan: { __typename?: 'SaleInstalmentPlan', noTerms: number, initialPayment: number, terms: Array<{ __typename?: 'SaleInstalmentTerm', id: string, dueDate?: any | undefined, dueAmount: number, paidAmount: number, completed: boolean }> } }> };
 
 export type SearchBookingsQueryVariables = Exact<{
   query?: InputMaybe<Scalars['String']>;
@@ -4338,7 +4340,7 @@ export type SearchSalesQueryVariables = Exact<{
 }>;
 
 
-export type SearchSalesQuery = { __typename?: 'Query', searchSales: { __typename?: 'SearchSalesResponse', count: number, data: Array<{ __typename?: 'Sale', totalPrice: number, salesReference?: string | undefined, subtotal: number, id: string, dateCreated: any, deleted?: boolean | undefined, dateUpdated: any, items: Array<{ __typename?: 'SaleItem', id: string, productId: string, title: string, quantity: number, totalSell: number, totalCost: number }>, customer: { __typename?: 'Customer', address: string, phone: string, nic: string, lastName: string, firstName: string, id: string }, instalmentPlan: { __typename?: 'SaleInstalmentPlan', noTerms: number, initialPayment: number, terms: Array<{ __typename?: 'SaleInstalmentTerm', id: string, dueDate?: any | undefined, dueAmount: number, paidAmount: number, completed: boolean }> } }> } };
+export type SearchSalesQuery = { __typename?: 'Query', searchSales: { __typename?: 'SearchSalesResponse', count: number, data: Array<{ __typename?: 'Sale', totalPrice: number, salesReference?: string | undefined, subtotal: number, cancelled?: boolean | undefined, id: string, dateCreated: any, deleted?: boolean | undefined, dateUpdated: any, items: Array<{ __typename?: 'SaleItem', id: string, productId: string, title: string, quantity: number, totalSell: number, totalCost: number }>, customer: { __typename?: 'Customer', address: string, phone: string, nic: string, lastName: string, firstName: string, id: string }, instalmentPlan: { __typename?: 'SaleInstalmentPlan', noTerms: number, initialPayment: number, terms: Array<{ __typename?: 'SaleInstalmentTerm', id: string, dueDate?: any | undefined, dueAmount: number, paidAmount: number, completed: boolean }> } }> } };
 
 export type SpaceQueryVariables = Exact<{
   where: WhereInputType;
@@ -5088,6 +5090,7 @@ export const CreateSaleDocument = gql`
           completed
         }
       }
+      cancelled
       id
       dateCreated
       deleted
@@ -6574,6 +6577,7 @@ export const UpdateSaleDocument = gql`
         completed
       }
     }
+    cancelled
     id
     dateCreated
     deleted
@@ -9273,6 +9277,7 @@ export const SaleDocument = gql`
         completed
       }
     }
+    cancelled
     id
     dateCreated
     deleted
@@ -9322,6 +9327,7 @@ export const SalesDocument = gql`
         completed
       }
     }
+    cancelled
     id
     dateCreated
     deleted
@@ -9776,6 +9782,7 @@ export const SearchSalesDocument = gql`
           completed
         }
       }
+      cancelled
       id
       dateCreated
       deleted

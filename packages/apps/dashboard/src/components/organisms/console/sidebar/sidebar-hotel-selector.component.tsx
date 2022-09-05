@@ -219,7 +219,7 @@ export const SidebarHotelSelector: React.FC<Props> = ({ isMenuVisible }) => {
       isMenuVisible={isMenuVisible}
     >
       <SButtonWrapper onClick={handleToggleDropdown}>
-        <SHotelLogoWrapper>
+        {/* <SHotelLogoWrapper>
           {!isIconLoaded && isHotelValidating ? (
             <MoonLoader size={16} />
           ) : (
@@ -233,17 +233,17 @@ export const SidebarHotelSelector: React.FC<Props> = ({ isMenuVisible }) => {
               onLoad={() => setIsIconLoaded(true)}
             />
           )}
-        </SHotelLogoWrapper>
+        </SHotelLogoWrapper> */}
 
         <SDropdownButtonWrapper>
           <SHotelName color={theme.textColors.gray} fontWeight="semibold">
             {selectedHotel ? selectedHotel.name : 'Loading Hotel'}
           </SHotelName>
-          {isDropdownVisible ? (
+          {/* {isDropdownVisible ? (
             <FiChevronUp size={12} />
           ) : (
             <FiChevronDown size={12} />
-          )}
+          )} */}
         </SDropdownButtonWrapper>
       </SButtonWrapper>
 

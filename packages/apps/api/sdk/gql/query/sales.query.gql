@@ -39,6 +39,7 @@ query sales($sort: SalesSortInput, $limit: Float, $offset: Float, $guestId: Stri
         completed
       }
     }
+    cancelled
     id
     dateCreated
     deleted

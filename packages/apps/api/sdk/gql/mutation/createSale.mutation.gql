@@ -38,6 +38,7 @@ mutation createSale($items: [SaleItemInput!]!, $totalPrice: Float!, $salesRefere
           completed
         }
       }
+      cancelled
       id
       dateCreated
       deleted

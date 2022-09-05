@@ -41,7 +41,7 @@ export const CustomersAll: React.FC = () => {
 
   const [customer, setCustomer] = useState<Customer | undefined>(undefined);
 
-  const { data } = useSearchCustomers(query);
+  const { data, mutate: mutateCustomers } = useSearchCustomers(query);
   const count = data?.count;
 
   useEffect(() => {
@@ -89,7 +89,8 @@ export const CustomersAll: React.FC = () => {
       <CustomersModal
         visible={visibleCustomerModal}
         customer={customer}
-        onClose={() => {
+        onClose={async (mutate) => {
+          if (mutate) await mutateCustomers();
           setTimeout(() => {
             setCustomer(undefined);
           }, 200);

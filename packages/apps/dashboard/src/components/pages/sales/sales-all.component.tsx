@@ -165,6 +165,14 @@ export const SalesAll: React.FC = () => {
                           <Text.Body fontWeight="semibold">
                             Initial - Rs.{sale.instalmentPlan.initialPayment}
                           </Text.Body>
+                          {sale.cancelled ? (
+                            <Text.Body
+                              color={theme.colors.red}
+                              fontWeight="semibold"
+                            >
+                              Cancelled
+                            </Text.Body>
+                          ) : null}
                         </div>
                       </Grid>
                     </Table.Cell>

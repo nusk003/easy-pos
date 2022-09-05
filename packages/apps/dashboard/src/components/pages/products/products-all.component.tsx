@@ -40,7 +40,7 @@ export const ProductsAll: React.FC = () => {
   });
   const [products, setProducts] = useState<Product[]>();
 
-  const { data } = useSearchProducts(query);
+  const { data, mutate: mutateProducts } = useSearchProducts(query);
   const count = data?.count;
 
   useEffect(() => {
@@ -94,7 +94,8 @@ export const ProductsAll: React.FC = () => {
       />
       <ProductsModal
         visible={visibleProductsModal}
-        onClose={() => {
+        onClose={async (mutate) => {
+          if (mutate) await mutateProducts();
           setTimeout(() => {
             setProduct(undefined);
           }, 200);

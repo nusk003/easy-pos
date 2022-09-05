@@ -30,6 +30,7 @@ query sale($where: WhereInputType!) {
         completed
       }
     }
+    cancelled
     id
     dateCreated
     deleted

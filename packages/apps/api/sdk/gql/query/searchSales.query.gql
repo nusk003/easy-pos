@@ -37,6 +37,7 @@ query searchSales($query: String, $limit: Float, $offset: Float, $startDate: Dat
           completed
         }
       }
+      cancelled
       id
       dateCreated
       deleted
